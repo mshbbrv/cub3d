@@ -6,18 +6,18 @@
 /*   By: thjonell <thjonell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/07 21:23:38 by thjonell          #+#    #+#             */
-/*   Updated: 2020/12/11 16:28:58 by thjonell         ###   ########.fr       */
+/*   Updated: 2020/12/21 19:17:43 by thjonell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-int	color_parse(char ***line, int *color)
+int	color_parse(char ***line, int *color, int i)
 {
-	int	i;
 	int j;
 
-	i = 2;
+	while (*(**line + i) == ' ')
+		i++;
 	j = 0;
 	while (j < 3)
 	{
@@ -30,13 +30,13 @@ int	color_parse(char ***line, int *color)
 		if (color[j] > 255 || color[j] < 0)
 		{
 			free(**line);
-			return (-1);
+			error_handler("Invalid color set");
 		}
 		j++;
 		i++;
 	}
 	free(**line);
-	return (0);
+	return (PARSE_SUCCESS);
 }
 
 int	texture_parse(char ***line, char **str, int i)
@@ -47,32 +47,38 @@ int	texture_parse(char ***line, char **str, int i)
 		i++;
 	*str = **line + i;
 	if ((fd = open(*str, O_RDONLY)) < 0)
-		return (-1);
+	//	error_handler("Сan not open texture file");
+		;
 	close(fd);
-	return (0);
+	return (PARSE_SUCCESS);
 }
 
-int	r_parse(char ***line, t_world ***world)
+int	r_parse(char ***line, t_world ***world, int i)
 {
-	int	i;
-
-	i = 2;
-	while (ft_isdigit(*(**line + i)))
-	{
-		(**world)->x_res = (**world)->x_res * 10 + (*(**line + i) - 48);
+	while (*(**line + i) == ' ')
 		i++;
-	}
-	i++;
-	while (ft_isdigit(*(**line + i)))
+	if (ft_isdigit(*(**line + i)))
 	{
-		(**world)->y_res = (**world)->y_res * 10 + (*(**line + i) - 48);
-		i++;
-	}
-	if ((**world)->y_res < 0 || (**world)->x_res < 0)
-	{
+		while (ft_isdigit(*(**line + i)))
+		{
+			(**world)->x_res = (**world)->x_res * 10 + (*(**line + i) - 48);
+			i++;
+		}
+		if (*(**line + i) == ' ')
+			i++;
+		while (ft_isdigit(*(**line + i)))
+		{
+			(**world)->y_res = (**world)->y_res * 10 + (*(**line + i) - 48);
+			i++;
+		}
+		if ((!ft_isdigit(*(**line + i)) && *(**line + i) != '\0'))
+		{
+			free(**line);
+			error_handler("Invalid screen resolution");
+		}
 		free(**line);
-		return (-1);
 	}
-	free(**line);
-	return (0);
+	else
+		error_handler("Invalid screen resolution");
+	return (PARSE_SUCCESS);
 }
