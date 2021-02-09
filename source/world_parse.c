@@ -6,7 +6,7 @@
 /*   By: thjonell <thjonell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/03 20:52:31 by thjonell          #+#    #+#             */
-/*   Updated: 2020/12/21 20:33:14 by thjonell         ###   ########.fr       */
+/*   Updated: 2020/12/26 16:16:24 by thjonell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,8 +56,9 @@ void	file_reader(char *argv, t_world *world, t_list **map_list)
 
 void	map_parse(t_list **map_list, int size)
 {
-	char	**map;
-	int		i;
+	char		**map;
+	int			i;
+	t_map_data	map_data;
 
 	if (!(map = (char **)ft_calloc(size + 1, sizeof(char *))))
 		error_handler("Can not allocate memory");
@@ -70,7 +71,8 @@ void	map_parse(t_list **map_list, int size)
 	*(map + ++i) = NULL;
 	if (map_validate(map, size) == -1)
 		error_handler("Invalid map");
-	put_map(map);
+	map_data.map = map;
+	put_map(map_data);
 }
 
 void	world_parse(char *argv)

@@ -6,19 +6,11 @@
 /*   By: thjonell <thjonell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/04 15:30:02 by thjonell          #+#    #+#             */
-/*   Updated: 2020/12/21 21:21:34 by thjonell         ###   ########.fr       */
+/*   Updated: 2021/02/09 19:14:19 by thjonell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
-
-typedef struct  s_data {
-	void        *img;
-	char        *addr;
-	int         bits_per_pixel;
-	int         line_length;
-	int         endian;
-}               t_data;
 
 void			my_mlx_pixel_put(t_data *data, int x, int y, int color)
 {
@@ -41,48 +33,106 @@ void	draw_big_pixel(int i, int j, t_data img, int color)
 	{
 		x = 0;
 		while (x++ < size)
-			my_mlx_pixel_put(&img, i * size + y, j * size + x,
-							 color);
+			my_mlx_pixel_put(&img, i * size + y, j * size + x, color);
 	}
 }
 
-void	draw_map(t_data img, char **map)
+void	draw_map(t_all_data *all)
 {
-	int	i;
-	int j;
+	int	x;
+	int y;
 
-	j = 0;
-	while (map[j])
+	x = all->map_data.x;
+	y = all->map_data.y;
+	//all->map_data.map[player_y][player_x] = all->map_data.player;
+	draw_big_pixel(x, y, all->img, 0x00FF0000);
+	y = 0;
+	while (all->map_data.map[y])
 	{
-		i = 0;
-		while (map[j][i])
+		x = 0;
+		while (all->map_data.map[y][x])
 		{
-			if (map[j][i] == '1')
-				draw_big_pixel(i, j, img, 0x00FFFFFF);
-			if (pl_validate(map[j][i]))
-				draw_big_pixel(i, j, img, 0x00FF0000);
-			if (map[j][i] == '2')
-				draw_big_pixel(i, j, img, 0x000000FF);
-			i++;
+			if (all->map_data.map[y][x] == '1')
+				draw_big_pixel(x, y, all->img, 0x00FFFFFF);
+			//if (pl_validate(all->map_data.map[y][x]))
+			//	draw_big_pixel(x, y, all->img, 0x00FF0000);
+			if (all->map_data.map[y][x] == '2')
+				draw_big_pixel(x, y, all->img, 0x000000FF);
+			x++;
 		}
-		j++;
+		y++;
 	}
 }
 
-void	put_map(char **map)
+int move_player(int keycode, t_all_data *all)
 {
-	void	*mlx;
-	void	*mlx_win;
-	t_data  img;
+	mlx_clear_window(all->vars.mlx, all->vars.win);
+	if (keycode == 13)
+	{
+		if (all->map_data.map[all->map_data.y - 1][all->map_data.x] == '0')
+			all->map_data.y -= 1;
+	}
+	if (keycode == 1)
+	{
+		if (all->map_data.map[all->map_data.y + 1][all->map_data.x] == '0')
+			all->map_data.y += 1;
+	}
+	if (keycode == 2)
+	{
+		if (all->map_data.map[all->map_data.y][all->map_data.x + 1] == '0')
+			all->map_data.x += 1;
+	}
+	if (keycode == 0)
+	{
+		if (all->map_data.map[all->map_data.y][all->map_data.x - 1] == '0')
+			all->map_data.x -= 1;
+	}
+	if (keycode == 53)
+		exit(0);
+	all->img.img = mlx_new_image(all->vars.mlx, 640, 480);
+	all->img.addr = mlx_get_data_addr(all->img.img, &all->img.bits_per_pixel,
+									 &all->img.line_length, &all->img.endian);
+	draw_map(all);
+	mlx_put_image_to_window(all->vars.mlx, all->vars.win, all->img.img, 0, 0);
+	return (0);
+}
 
-	mlx = mlx_init();
-	mlx_win = mlx_new_window(mlx, 640, 480, "Hello, World!");
-	img.img = mlx_new_image(mlx, 1920, 1080);
+void	player_init(t_all_data *all)
+{
+	int x;
+	int y;
 
-	img.addr = mlx_get_data_addr(img.img, &img.bits_per_pixel, &img.line_length,
-								 &img.endian);
-	draw_map(img, map);
-	my_mlx_pixel_put(&img, 0, 0, 0xFFFFFFF);
-	mlx_put_image_to_window(mlx, mlx_win, img.img, 0, 0);
-	mlx_loop(mlx);
+	y = 0;
+	while (all->map_data.map[y])
+	{
+		x = 0;
+		while (all->map_data.map[y][x])
+		{
+			if (pl_validate(all->map_data.map[y][x]))
+			{
+				//all->map_data.player = all->map_data.map[y][x];
+				all->map_data.x = x;
+				all->map_data.y = y;
+			}
+			x++;
+		}
+		y++;
+	}
+}
+
+void	put_map(t_map_data map_data)
+{
+	t_all_data all;
+
+	all.map_data = map_data;
+	player_init(&all);
+	all.vars.mlx = mlx_init();
+	all.vars.win = mlx_new_window(all.vars.mlx, 640, 480, "cub3d");
+	all.img.img = mlx_new_image(all.vars.mlx, 640, 480);
+	all.img.addr = mlx_get_data_addr(all.img.img, &all.img.bits_per_pixel,
+							  &all.img.line_length, &all.img.endian);
+	draw_map(&all);
+	mlx_put_image_to_window(all.vars.mlx, all.vars.win, all.img.img, 0, 0);
+	mlx_hook(all.vars. win, 2, 1L<<0, &move_player, &all);
+	mlx_loop(all.vars.mlx);
 }

@@ -6,7 +6,7 @@
 /*   By: thjonell <thjonell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/01 13:48:32 by thjonell          #+#    #+#             */
-/*   Updated: 2020/12/21 20:17:59 by thjonell         ###   ########.fr       */
+/*   Updated: 2021/02/09 18:49:41 by thjonell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,28 @@
 # define pl_validate(x) ((x) == 'N' || (x) == 'S' || (x) == 'E' || (x) == 'W')
 # define END_PARSE_ELEM 1
 # define PARSE_SUCCESS 0
+
+typedef struct	s_map_data
+{
+	int		x;
+	int 	y;
+	char	player;
+	char	**map;
+}				t_map_data;
+
+typedef struct  s_vars {
+	void		*mlx;
+	void		*win;
+}               t_vars;
+
+typedef struct  s_data {
+	void        *img;
+	char        *addr;
+	int         bits_per_pixel;
+	int         line_length;
+	int         endian;
+}               t_data;
+
 typedef struct s_world
 {
 	int			x_res;
@@ -50,11 +72,18 @@ typedef struct	s_map_stuff
 	int			nbs;
 }				t_map_stuff;
 
+typedef struct	s_all_data
+{
+	t_vars		vars;
+	t_map_data	map_data;
+	t_data		img;
+}				t_all_data;
+
 void	world_parse(char *argv);
 int		r_parse(char ***line, t_world ***world, int i);
 int		texture_parse(char ***line, char **str, int i);
 int		color_parse(char ***line, int *color, int i);
 int		map_validate(char **map, int size);
-void 	put_map(char **map);
+void	put_map(t_map_data map_data);
 void	error_handler(char *error_str);
 #endif
