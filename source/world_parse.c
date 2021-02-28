@@ -6,7 +6,7 @@
 /*   By: thjonell <thjonell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/03 20:52:31 by thjonell          #+#    #+#             */
-/*   Updated: 2020/12/26 16:16:24 by thjonell         ###   ########.fr       */
+/*   Updated: 2021/02/27 15:47:35 by thjonell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,31 +54,30 @@ void	file_reader(char *argv, t_world *world, t_list **map_list)
 	close(fd);
 }
 
-void	map_parse(t_list **map_list, int size)
+void	map_parse(t_list **map_list, int size, t_map_data *map_data)
 {
-	char		**map;
+	//char		**map;
 	int			i;
-	t_map_data	map_data;
 
-	if (!(map = (char **)ft_calloc(size + 1, sizeof(char *))))
+	if (!(map_data->map = (char **)ft_calloc(size + 1, sizeof(char *))))
 		error_handler("Can not allocate memory");
 	i = 0;
 	while (*map_list)
 	{
-		*(map + i++) = (*map_list)->content;
+		*(map_data->map + i++) = (*map_list)->content;
 		*map_list = (*map_list)->next;
 	}
-	*(map + ++i) = NULL;
-	if (map_validate(map, size) == -1)
+	*(map_data->map + ++i) = NULL;
+	if (map_validate(map_data->map, size) == -1)
 		error_handler("Invalid map");
-	map_data.map = map;
-	put_map(map_data);
+	//start_mlx(map_data);
 }
 
 void	world_parse(char *argv)
 {
-	t_world world;
-	t_list	*map_list;
+	t_world		world;
+	t_list		*map_list;
+	t_map_data	map_data;
 
 	map_list = NULL;
 	world.x_res = 0;
@@ -105,5 +104,6 @@ void	world_parse(char *argv)
 	ft_putchar_fd(',', 1);
 	ft_putnbr_fd(world.c[2], 1);
 	ft_putchar_fd('\n', 1);*/
-	map_parse(&map_list, ft_lstsize(map_list));
+	map_parse(&map_list, ft_lstsize(map_list), &map_data);
+	start_mlx(map_data, world);
 }
