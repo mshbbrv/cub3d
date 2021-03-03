@@ -6,7 +6,7 @@
 /*   By: thjonell <thjonell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/01 13:48:32 by thjonell          #+#    #+#             */
-/*   Updated: 2021/02/28 18:37:59 by thjonell         ###   ########.fr       */
+/*   Updated: 2021/03/03 16:20:38 by thjonell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,13 +29,13 @@
 # define pl_validate(x) ((x) == 'N' || (x) == 'S' || (x) == 'E' || (x) == 'W')
 # define END_PARSE_ELEM 1
 # define PARSE_SUCCESS 0
-# define MOVE_SPEED 0.5
+# define MOVE_SPEED 0.08
+# define ROT 0.05
 
 typedef struct	s_map_data
 {
-	int		x;
-	int 	y;
-	char	player;
+	double	pl_x;
+	double	pl_y;
 	char	**map;
 }				t_map_data;
 
@@ -50,6 +50,8 @@ typedef struct  s_data {
 	int 		bits_per_pixel;
 	int			line_length;
 	int 		endian;
+	int			width;
+	int			height;
 }               t_data;
 
 typedef struct s_world
@@ -76,13 +78,13 @@ typedef struct	s_map_stuff
 
 typedef struct	s_ray_cast
 {
-	double 		camera_y;
+	double 		camera_x;
 	double		pl_dir_x;
 	double		pl_dir_y;
 	double 		ray_dir_x;
 	double		ray_dir_y;
-	double		plane_x;
-	double		plane_y;
+	double		cam_plane_x;
+	double		cam_plane_y;
 	double 		delta_x;
 	double		delta_y;
 	int			step_x;
@@ -94,26 +96,48 @@ typedef struct	s_ray_cast
 	int			hit;
 	int 		side;
 	double		perp_dist;
+	double		step;
 }				t_ray_cast;
 
 
-typedef struct	s_wall
+typedef struct		s_wall
 {
-	double		perp_dist;
-	int			line_height;
-	int 		draw_start;
-	int 		draw_end;
-	int			roof;
-}				t_wall;
+	int				line_height;
+	int 			draw_start;
+	int 			draw_end;
+	int				ceil;
+	double			wall_x;
+	double			tex_pos;
+	int				tex_x;
+	int				tex_y;
+	unsigned int	color;
+}					t_wall;
+
+typedef struct	s_keys_data
+{
+	int			w;
+	int			s;
+	int			a;
+	int			d;
+	int			esc;
+	int			left;
+	int			right;
+}				t_keys_data;
 
 typedef struct	s_all_data
 {
 	t_vars		vars;
 	t_map_data	map_data;
-	t_data		img;
-	t_world		world;
-	t_ray_cast	ray_cast;
+	t_data		img_data;
+	t_world		parse_data;
+	t_ray_cast	rc;
 	t_wall		wall;
+	t_keys_data	keys_data;
+	t_data		n_texture;
+	t_data		s_texture;
+	t_data		e_texture;
+	t_data		w_texture;
+	t_data		texture;
 }				t_all_data;
 
 void	world_parse(char *argv);
@@ -123,4 +147,28 @@ int		color_parse(char ***line, int *color, int i);
 int		map_validate(char **map, int size);
 void	start_mlx(t_map_data map_data, t_world world);
 void	error_handler(char *error_str);
+void	start_render(t_map_data map_data, t_world world);
+void	render_walls(t_all_data *all);
+void	my_mlx_pixel_put(t_data *data, int x, int y, int color);
+void	w_move(t_all_data *all);
+void	s_move(t_all_data *all);
+void	a_move(t_all_data *all);
+void	d_move(t_all_data *all);
+void	left_rotation(t_all_data *all);
+void	right_rotation(t_all_data *all);
+void	ray_calc(t_all_data *all, int x);
+void	step_calc(t_all_data *all);
+void	hit_calc(t_all_data *all);
+void	wall_calc(t_all_data *all);
+void	draw_walls(t_all_data *all, int x);
+int 	movement(t_all_data *all);
+int		key_off(int keycode, t_all_data *all);
+int 	key_on(int keycode, t_all_data *all);
+void	my_mlx_init(t_all_data *all);
+void	my_mlx_pixel_put(t_data *data, int x, int y, int color);
+int		close_window(t_all_data *all);
+void	my_clear_window(t_all_data *all);
+void	wall_hit_calc(t_all_data *all);
+void 	current_tex_calc(t_all_data *all);
+unsigned int	tex_color(t_data *texture, int x, int y);
 #endif

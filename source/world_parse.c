@@ -6,7 +6,7 @@
 /*   By: thjonell <thjonell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/03 20:52:31 by thjonell          #+#    #+#             */
-/*   Updated: 2021/02/27 15:47:35 by thjonell         ###   ########.fr       */
+/*   Updated: 2021/03/03 13:23:59 by thjonell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,5 +105,5 @@ void	world_parse(char *argv)
 	ft_putnbr_fd(world.c[2], 1);
 	ft_putchar_fd('\n', 1);*/
 	map_parse(&map_list, ft_lstsize(map_list), &map_data);
-	start_mlx(map_data, world);
+	start_render(map_data, world);
 }

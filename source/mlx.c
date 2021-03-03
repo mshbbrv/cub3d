@@ -6,7 +6,7 @@
 /*   By: thjonell <thjonell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/04 15:30:02 by thjonell          #+#    #+#             */
-/*   Updated: 2021/02/28 21:20:40 by thjonell         ###   ########.fr       */
+/*   Updated: 2021/03/03 13:23:53 by thjonell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -181,15 +181,6 @@ void	init_ray_dir(t_all_data *all, int x)
 	printf("%f\n", all->ray_cast.delta_y);
 }
 
-/*void	ray_dir_and_delta(t_head *h, int x)
-{
-	h->ray.cam_y = 2 * x / (double)h->resol.w - 1;
-	h->ray.raydir_x = h->player.dir_x + h->ray.plane_x * h->ray.cam_y;
-	h->ray.raydir_y = h->player.dir_y + h->ray.plane_y * h->ray.cam_y;
-	h->ray.delta_x = fabs(1 / h->ray.raydir_x);
-	h->ray.delta_y = fabs(1 / h->ray.raydir_y);
-}*/
-
 void	init_side_dist_step(t_all_data *all)
 {
 	if (all->ray_cast.ray_dir_x < 0)
@@ -239,26 +230,6 @@ void	check_hit_wall(t_all_data *all)
 			all->ray_cast.hit = 1;
 	}
 }
-
-/*void	ray_hit(t_head *h)
-{
-	while (h->map[h->ray.map_y][h->ray.map_x] != '1')
-	{
-		if (h->ray.first_side_x < h->ray.first_side_y)
-		{
-			h->ray.first_side_x += h->ray.delta_x;
-			h->ray.map_x += h->ray.step_x;
-			h->ray.side = 0;
-		}
-		else
-		{
-			h->ray.first_side_y += h->ray.delta_y;
-			h->ray.map_y += h->ray.step_y;
-			h->ray.side = 1;
-		}
-	}
-}
-*/
 
 void calc_dist(t_all_data *all)
 {
@@ -327,7 +298,7 @@ void	wall_line_draw(t_all_data *all, int x)
 {
 	while (all->wall.roof <= all->wall.draw_start)
 	{
-		my_mlx_pixel_put(&all->img, x, all->wall.roof, 0xFFFFFFFF);
+			my_mlx_pixel_put(&all->img, x, all->wall.roof, 0xFFFFFFFF);
 		all->wall.roof++;
 	}
 	while (all->wall.draw_start <= all->wall.draw_end)

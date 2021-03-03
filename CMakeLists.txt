@@ -1,7 +1,7 @@
-cmake_minimum_required(VERSION 3.12)
+cmake_minimum_required(VERSION 3.17)
 project(cub3D C)
 set(CMAKE_C_STANDARD 99)
-set(CMAKE_C_FLAGS "-Lmlx -lmlx -framework OpenGL -framework AppKit")
+set(CMAKE_C_FLAGS "-g3 -lmlx -framework OpenGL -framework AppKit")
 #set(CMAKE_C_FLAGS "-Lmlx -lmlx -framework OpenGL -framework AppKit")
 #set(CMAKE_C_FLAGS "-Wall -Werror -Wextra")
 link_directories(/usr/local/lib)
@@ -64,6 +64,13 @@ add_executable(cub3D
         libraries/libmlx.a
         source/main.c
         source/map_validate.c
-        source/mlx.c
+        source/render.c
         source/texture_parse.c
-        source/world_parse.c)
+        source/world_parse.c
+        source/render_walls.c
+        source/movement.c
+        source/rotation.c
+        source/key_on_off.c
+        source/mlx_utils.c
+        source/render_walls_utils.c
+        source/render_walls_utils2.c)
