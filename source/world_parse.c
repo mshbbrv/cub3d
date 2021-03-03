@@ -6,7 +6,7 @@
 /*   By: thjonell <thjonell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/03 20:52:31 by thjonell          #+#    #+#             */
-/*   Updated: 2021/03/03 13:23:59 by thjonell         ###   ########.fr       */
+/*   Updated: 2021/03/03 22:28:40 by thjonell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,9 @@ int	elem_parse(char **line, t_world **world)
 	else if (*(*line) == 'S')
 		return (texture_parse(&line, &(*world)->s, 1));
 	else if (*(*line) == 'F')
-		return (color_parse(&line, (*world)->f, 1));
+		return (color_parse(&line, &(*world)->floor_color, 1));
 	else if (*(*line) == 'C')
-		return (color_parse(&line, (*world)->c, 1));
+		return (color_parse(&line, &(*world)->ceil_color, 1));
 	else if (*(*line) == '\0')
 		return (PARSE_SUCCESS);
 	return (END_PARSE_ELEM);
@@ -92,18 +92,8 @@ void	world_parse(char *argv)
 	ft_putendl_fd(world.we, 1);
 	ft_putendl_fd(world.ea, 1);
 	ft_putendl_fd(world.s, 1);
-	ft_putnbr_fd(world.f[0], 1);
-	ft_putchar_fd(',', 1);
-	ft_putnbr_fd(world.f[1], 1);
-	ft_putchar_fd(',', 1);
-	ft_putnbr_fd(world.f[2], 1);
-	ft_putchar_fd('\n', 1);
-	ft_putnbr_fd(world.c[0], 1);
-	ft_putchar_fd(',', 1);
-	ft_putnbr_fd(world.c[1], 1);
-	ft_putchar_fd(',', 1);
-	ft_putnbr_fd(world.c[2], 1);
-	ft_putchar_fd('\n', 1);*/
+	printf("ceil color %x\n", world.ceil_color);
+	printf("floor color %x\n", world.floor_color);*/
 	map_parse(&map_list, ft_lstsize(map_list), &map_data);
 	start_render(map_data, world);
 }

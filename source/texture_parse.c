@@ -6,28 +6,29 @@
 /*   By: thjonell <thjonell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/07 21:23:38 by thjonell          #+#    #+#             */
-/*   Updated: 2020/12/21 19:17:43 by thjonell         ###   ########.fr       */
+/*   Updated: 2021/03/03 22:32:25 by thjonell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-int	color_parse(char ***line, int *color, int i)
+int	color_parse(char ***line, unsigned int *color, int i)
 {
 	int j;
+	int	tmp[3];
 
 	while (*(**line + i) == ' ')
 		i++;
 	j = 0;
 	while (j < 3)
 	{
-		color[j] = 0;
+		tmp[j] = 0;
 		while (ft_isdigit(*(**line + i)))
 		{
-			color[j] = color[j] * 10 + (*(**line + i) - 48);
+			tmp[j] = tmp[j] * 10 + (*(**line + i) - 48);
 			i++;
 		}
-		if (color[j] > 255 || color[j] < 0)
+		if (tmp[j] > 255 || tmp[j] < 0)
 		{
 			free(**line);
 			error_handler("Invalid color set");
@@ -35,6 +36,7 @@ int	color_parse(char ***line, int *color, int i)
 		j++;
 		i++;
 	}
+	*color = (tmp[0] << 16 | tmp[1] << 8 | tmp[2]);
 	free(**line);
 	return (PARSE_SUCCESS);
 }
@@ -47,8 +49,10 @@ int	texture_parse(char ***line, char **str, int i)
 		i++;
 	*str = **line + i;
 	if ((fd = open(*str, O_RDONLY)) < 0)
-	//	error_handler("Сan not open texture file");
-		;
+	{
+		close(fd);
+		//error_handler("Сan not open texture file");
+	}
 	close(fd);
 	return (PARSE_SUCCESS);
 }

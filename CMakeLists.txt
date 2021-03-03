@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.17)
-project(cub3D C)
+project(cub3d)
 set(CMAKE_C_STANDARD 99)
 set(CMAKE_C_FLAGS "-g3 -lmlx -framework OpenGL -framework AppKit")
 #set(CMAKE_C_FLAGS "-Lmlx -lmlx -framework OpenGL -framework AppKit")
@@ -12,8 +12,8 @@ include_directories(source)
 include_directories(libraries)
 include_directories(includes)
 include_directories(libft)
-include_directories(cub3D)
-add_executable(cub3D
+include_directories(cub3d)
+add_executable(cub3d
         libft/ft_atoi.c
         libft/ft_bzero.c
         libft/ft_calloc.c

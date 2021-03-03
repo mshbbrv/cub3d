@@ -6,7 +6,7 @@
 /*   By: thjonell <thjonell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/04 15:30:02 by thjonell          #+#    #+#             */
-/*   Updated: 2021/03/03 17:25:03 by thjonell         ###   ########.fr       */
+/*   Updated: 2021/03/03 22:18:51 by thjonell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,12 +31,12 @@ void	player_dir_init(t_all_data *all, char player)
 	if (player == 'W')
 	{
 		all->rc.pl_dir_x = -1;
-		all->rc.cam_plane_y = -0.66;
+		all->rc.cam_plane_y = 0.66;
 	}
 	if (player == 'E')
 	{
 		all->rc.pl_dir_x = 1;
-		all->rc.cam_plane_y = 0.66;
+		all->rc.cam_plane_y = -0.66;
 	}
 }
 
@@ -73,21 +73,21 @@ void	wall_tex_init(t_all_data *all)
 										 &all->n_texture.endian);
 
 	all->s_texture.img = mlx_xpm_file_to_image(all->vars.mlx, all->parse_data
-			.so, &all->s_texture.width, &all->s_texture.height);
+	.so, &all->s_texture.width, &all->s_texture.height);
 	all->s_texture.addr = mlx_get_data_addr(all->s_texture.img,
 											&all->s_texture.bits_per_pixel,
 											&all->s_texture.line_length,
 											&all->s_texture.endian);
 
 	all->w_texture.img = mlx_xpm_file_to_image(all->vars.mlx, all->parse_data
-			.we, &all->w_texture.width, &all->w_texture.height);
+	.we, &all->w_texture.width, &all->w_texture.height);
 	all->w_texture.addr = mlx_get_data_addr(all->w_texture.img,
 											&all->w_texture.bits_per_pixel,
 											&all->w_texture.line_length,
 											&all->w_texture.endian);
 
 	all->e_texture.img = mlx_xpm_file_to_image(all->vars.mlx, all->parse_data
-			.ea, &all->e_texture.width, &all->e_texture.height);
+	.ea, &all->e_texture.width, &all->e_texture.height);
 	all->e_texture.addr = mlx_get_data_addr(all->e_texture.img,
 											&all->e_texture.bits_per_pixel,
 											&all->e_texture.line_length,
@@ -107,9 +107,9 @@ void	start_render(t_map_data map_data, t_world world)
 	all.keys_data.right = 0;
 	all.map_data = map_data;
 	all.parse_data = world;
-	wall_tex_init(&all);
 	player_init(&all);
 	my_mlx_init(&all);
+	wall_tex_init(&all);
 	render_walls(&all);
 	mlx_put_image_to_window(all.vars.mlx, all.vars.win, all.img_data.img,
 							0, 0);

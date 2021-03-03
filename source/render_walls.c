@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   render_walls.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: thjonell <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: thjonell <thjonell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/02 15:24:39 by thjonell          #+#    #+#             */
-/*   Updated: 2021/03/03 16:12:46 by thjonell         ###   ########.fr       */
+/*   Created: 2021/03/03 19:13:39 by thjonell          #+#    #+#             */
+/*   Updated: 2021/03/03 21:26:35 by thjonell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,8 @@ void	render_walls(t_all_data *all)
 		step_calc(all);
 		hit_calc(all);
 		wall_calc(all);
-		wall_hit_calc(all);
 		current_tex_calc(all);
+		wall_hit_calc(all);
 		draw_walls(all, x);
 		x++;
 	}

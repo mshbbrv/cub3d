@@ -6,7 +6,7 @@
 /*   By: thjonell <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 14:30:27 by thjonell          #+#    #+#             */
-/*   Updated: 2021/03/03 16:12:46 by thjonell         ###   ########.fr       */
+/*   Updated: 2021/03/03 21:02:24 by thjonell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,15 +74,11 @@ void	hit_calc(t_all_data *all)
 			all->rc.hit = 1;
 	}
 	if (all->rc.side == 0)
-	{
 		all->rc.perp_dist = (all->rc.map_x - all->map_data.pl_x + (1.0 -
-																   all->rc.step_x) / 2.0) / all->rc.ray_dir_x;
-	}
+				all->rc.step_x) / 2) / all->rc.ray_dir_x;
 	else
-	{
 		all->rc.perp_dist = (all->rc.map_y - all->map_data.pl_y + (1.0 -
-																   all->rc.step_y) / 2.0) / all->rc.ray_dir_y;
-	}
+				all->rc.step_y) / 2) / all->rc.ray_dir_y;
 }
 
 void	wall_calc(t_all_data *all)
@@ -98,29 +94,3 @@ void	wall_calc(t_all_data *all)
 		all->wall.draw_end = all->parse_data.y_res - 1;
 }
 
-void	draw_walls(t_all_data *all, int x)
-{
-	all->wall.ceil = 0;
-	while (all->wall.ceil <= all->wall.draw_start)
-	{
-		my_mlx_pixel_put(&all->img_data, x, all->wall.ceil,
-						 0x00FFFFFF);
-		all->wall.ceil++;
-	}
-	while (all->wall.draw_start <= all->wall.draw_end)
-	{
-		all->wall.tex_y = (int)all->wall.tex_pos % (all->texture.width - 1);
-		all->wall.tex_pos += all->rc.step;
-		all->wall.color = tex_color(&all->texture, all->wall.tex_x, all->wall
-		.tex_y);
-		my_mlx_pixel_put(&all->img_data, x, all->wall.draw_start,
-						 all->wall.color);
-		all->wall.draw_start++;
-	}
-		while (all->wall.draw_end < all->parse_data.y_res)
-	{
-		my_mlx_pixel_put(&all->img_data, x, all->wall.draw_end,
-						 0x00FFFFFF);
-		all->wall.draw_end++;
-	}
-}

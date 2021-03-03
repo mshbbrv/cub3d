@@ -6,7 +6,7 @@
 /*   By: thjonell <thjonell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/01 13:48:32 by thjonell          #+#    #+#             */
-/*   Updated: 2021/03/03 16:20:38 by thjonell         ###   ########.fr       */
+/*   Updated: 2021/03/03 21:50:28 by thjonell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,17 +54,17 @@ typedef struct  s_data {
 	int			height;
 }               t_data;
 
-typedef struct s_world
+typedef struct		s_world
 {
-	int			x_res;
-	int			y_res;
-	char		*no;
-	char		*so;
-	char		*we;
-	char		*ea;
-	char		*s;
-	int 		f[3];
-	int 		c[3];
+	int				x_res;
+	int				y_res;
+	char			*no;
+	char			*so;
+	char			*we;
+	char			*ea;
+	char			*s;
+	unsigned int	floor_color;
+	unsigned int	ceil_color;
 }				t_world;
 
 typedef struct	s_map_stuff
@@ -143,13 +143,12 @@ typedef struct	s_all_data
 void	world_parse(char *argv);
 int		r_parse(char ***line, t_world ***world, int i);
 int		texture_parse(char ***line, char **str, int i);
-int		color_parse(char ***line, int *color, int i);
+int		color_parse(char ***line, unsigned int *color, int i);
 int		map_validate(char **map, int size);
 void	start_mlx(t_map_data map_data, t_world world);
 void	error_handler(char *error_str);
 void	start_render(t_map_data map_data, t_world world);
 void	render_walls(t_all_data *all);
-void	my_mlx_pixel_put(t_data *data, int x, int y, int color);
 void	w_move(t_all_data *all);
 void	s_move(t_all_data *all);
 void	a_move(t_all_data *all);
