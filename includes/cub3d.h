@@ -6,7 +6,7 @@
 /*   By: thjonell <thjonell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/01 13:48:32 by thjonell          #+#    #+#             */
-/*   Updated: 2021/03/03 21:50:28 by thjonell         ###   ########.fr       */
+/*   Updated: 2021/03/04 20:04:56 by thjonell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@
 # define pl_validate(x) ((x) == 'N' || (x) == 'S' || (x) == 'E' || (x) == 'W')
 # define END_PARSE_ELEM 1
 # define PARSE_SUCCESS 0
-# define MOVE_SPEED 0.08
+# define MOVE_SPEED 0.06
 # define ROT 0.05
 
 typedef struct	s_map_data
@@ -170,4 +170,5 @@ void	my_clear_window(t_all_data *all);
 void	wall_hit_calc(t_all_data *all);
 void 	current_tex_calc(t_all_data *all);
 unsigned int	tex_color(t_data *texture, int x, int y);
+void 	perp_dis_calc(t_all_data *all);
 #endif

@@ -6,7 +6,7 @@
 /*   By: thjonell <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 14:30:27 by thjonell          #+#    #+#             */
-/*   Updated: 2021/03/03 21:02:24 by thjonell         ###   ########.fr       */
+/*   Updated: 2021/03/04 19:05:19 by thjonell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,14 @@ void	ray_calc(t_all_data *all, int x)
 {
 	double	camera_x;
 
-	camera_x = 2.0 * x / (double)all->parse_data.x_res - 1.0;
-	all->rc.ray_dir_x = all->rc.pl_dir_x + all->rc.cam_plane_x * camera_x;
+	camera_x = 2 * x / (double)all->parse_data.x_res - 1;
 	all->rc.ray_dir_y = all->rc.pl_dir_y + all->rc.cam_plane_y * camera_x;
-	all->rc.map_x = (int)all->map_data.pl_x;
+	all->rc.ray_dir_x = all->rc.pl_dir_x + all->rc.cam_plane_x * camera_x;
 	all->rc.map_y = (int)all->map_data.pl_y;
-	all->rc.delta_x = fabs(1 / all->rc.ray_dir_x);
+	all->rc.map_x = (int)all->map_data.pl_x;
 	all->rc.delta_y = fabs(1 / all->rc.ray_dir_y);
+	all->rc.delta_x = fabs(1 / all->rc.ray_dir_x);
+
 }
 
 void	step_calc(t_all_data *all)
@@ -66,13 +67,17 @@ void	hit_calc(t_all_data *all)
 		}
 		else
 		{
-			all->rc.side_dist_y = all->rc.delta_y;
+			all->rc.side_dist_y += all->rc.delta_y;
 			all->rc.map_y += all->rc.step_y;
 			all->rc.side = 1;
 		}
 		if (all->map_data.map[all->rc.map_y][all->rc.map_x] == '1')
 			all->rc.hit = 1;
 	}
+}
+
+void 	perp_dis_calc(t_all_data *all)
+{
 	if (all->rc.side == 0)
 		all->rc.perp_dist = (all->rc.map_x - all->map_data.pl_x + (1.0 -
 				all->rc.step_x) / 2) / all->rc.ray_dir_x;

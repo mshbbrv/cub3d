@@ -6,7 +6,7 @@
 /*   By: thjonell <thjonell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/04 15:30:02 by thjonell          #+#    #+#             */
-/*   Updated: 2021/03/03 22:18:51 by thjonell         ###   ########.fr       */
+/*   Updated: 2021/03/04 20:38:26 by thjonell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,12 +31,12 @@ void	player_dir_init(t_all_data *all, char player)
 	if (player == 'W')
 	{
 		all->rc.pl_dir_x = -1;
-		all->rc.cam_plane_y = 0.66;
+		all->rc.cam_plane_y = -0.66;
 	}
 	if (player == 'E')
 	{
 		all->rc.pl_dir_x = 1;
-		all->rc.cam_plane_y = -0.66;
+		all->rc.cam_plane_y = 0.66;
 	}
 }
 
@@ -55,7 +55,7 @@ void	player_init(t_all_data *all)
 			{
 				all->map_data.pl_x = x + 0.5;
 				all->map_data.pl_y = y + 0.5;
-				player_dir_init(&(*all), all->map_data.map[y][x]);
+				player_dir_init(all, all->map_data.map[y][x]);
 			}
 			x++;
 		}
@@ -110,7 +110,7 @@ void	start_render(t_map_data map_data, t_world world)
 	player_init(&all);
 	my_mlx_init(&all);
 	wall_tex_init(&all);
-	render_walls(&all);
+	//render_walls(&all);
 	mlx_put_image_to_window(all.vars.mlx, all.vars.win, all.img_data.img,
 							0, 0);
 	mlx_hook(all.vars.win, 2, 1L<<0, key_on, &all);

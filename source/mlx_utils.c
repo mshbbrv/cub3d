@@ -55,3 +55,14 @@ void	my_mlx_init(t_all_data *all)
 	all->img_data.addr = mlx_get_data_addr(all->img_data.img, &all->img_data
 			.bits_per_pixel, &all->img_data.line_length, &all->img_data.endian);
 }
+
+unsigned int	tex_color(t_data *texture, int x, int y)
+{
+	char			*dst;
+	unsigned int	color;
+
+	dst = texture->addr + (y * texture->line_length + (texture->width - x - 1) *
+													  (texture->bits_per_pixel / 8));
+	color = *(unsigned int*)dst;
+	return (color);
+}
