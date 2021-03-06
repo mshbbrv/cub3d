@@ -6,7 +6,7 @@
 /*   By: thjonell <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 14:38:51 by thjonell          #+#    #+#             */
-/*   Updated: 2021/03/03 14:38:56 by thjonell         ###   ########.fr       */
+/*   Updated: 2021/03/06 19:48:03 by thjonell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,16 @@ unsigned int	tex_color(t_data *texture, int x, int y)
 
 	dst = texture->addr + (y * texture->line_length + (texture->width - x - 1) *
 													  (texture->bits_per_pixel / 8));
+	color = *(unsigned int*)dst;
+	return (color);
+}
+
+unsigned int	tex_color_spr(t_data *texture, int x, int y)
+{
+	char			*dst;
+	unsigned int	color;
+
+	dst = texture->addr + (y * texture->line_length + x * (texture->bits_per_pixel / 8));
 	color = *(unsigned int*)dst;
 	return (color);
 }

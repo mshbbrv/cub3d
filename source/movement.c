@@ -33,6 +33,7 @@ int 	movement(t_all_data *all)
 		//free mem
 	}
 	render_walls(all);
+	render_sprite(all);
 	mlx_put_image_to_window(all->vars.mlx, all->vars.win, all->img_data.img,
 							0, 0);
 	return (0);
@@ -40,12 +41,12 @@ int 	movement(t_all_data *all)
 
 void	w_move(t_all_data *all)
 {
-	if (all->map_data.map[(int)(all->map_data.pl_y + all->rc.ray_dir_y *
+	if (all->map_data.map[(int)(all->map_data.pl_y + all->rc.pl_dir_y *
 	MOVE_SPEED)][(int)all->map_data.pl_x] != '1')
-		all->map_data.pl_y += all->rc.ray_dir_y * MOVE_SPEED;
+		all->map_data.pl_y += all->rc.pl_dir_y * MOVE_SPEED;
 	if (all->map_data.map[(int)all->map_data.pl_y][(int)(all->map_data.pl_x +
-	all->rc.ray_dir_x * MOVE_SPEED)] != '1')
-		all->map_data.pl_x += all->rc.ray_dir_x * MOVE_SPEED;
+	all->rc.pl_dir_x * MOVE_SPEED)] != '1')
+		all->map_data.pl_x += all->rc.pl_dir_x * MOVE_SPEED;
 	printf("y = %f | x = %f\n", all->map_data.pl_y, all->map_data.pl_x);
 	printf("dir_y = %f ", all->rc.ray_dir_y);
 	printf("dir_x = %f\n", all->rc.ray_dir_x);
@@ -53,12 +54,12 @@ void	w_move(t_all_data *all)
 
 void	s_move(t_all_data *all)
 {
-	if (all->map_data.map[(int)(all->map_data.pl_y - all->rc.ray_dir_y *
+	if (all->map_data.map[(int)(all->map_data.pl_y - all->rc.pl_dir_y *
 	MOVE_SPEED)][(int)all->map_data.pl_x] != '1')
-		all->map_data.pl_y -= all->rc.ray_dir_y * MOVE_SPEED;
+		all->map_data.pl_y -= all->rc.pl_dir_y * MOVE_SPEED;
 	if (all->map_data.map[(int)all->map_data.pl_y][(int)(all->map_data.pl_x -
-	all->rc.ray_dir_x * MOVE_SPEED)] != '1')
-		all->map_data.pl_x -= all->rc.ray_dir_x * MOVE_SPEED;
+	all->rc.pl_dir_x * MOVE_SPEED)] != '1')
+		all->map_data.pl_x -= all->rc.pl_dir_x * MOVE_SPEED;
 	printf("y = %f | x = %f\n", all->map_data.pl_y, all->map_data.pl_x);
 	printf("dir_y = %f ", all->rc.ray_dir_y);
 	printf("dir_x = %f\n", all->rc.ray_dir_x);
@@ -66,20 +67,20 @@ void	s_move(t_all_data *all)
 
 void	a_move(t_all_data *all)
 {
-	if (all->map_data.map[(int)(all->map_data.pl_y - all->rc.ray_dir_x *
+	if (all->map_data.map[(int)(all->map_data.pl_y - all->rc.pl_dir_x *
 	MOVE_SPEED)][(int) all->map_data.pl_x] != '1')
-		all->map_data.pl_y -= all->rc.ray_dir_x * MOVE_SPEED;
+		all->map_data.pl_y -= all->rc.pl_dir_x * MOVE_SPEED;
 	if (all->map_data.map[(int)all->map_data.pl_y][(int)(all->map_data.pl_x +
-	all->rc.ray_dir_y * MOVE_SPEED)] != '1')
-		all->map_data.pl_x += all->rc.ray_dir_y * MOVE_SPEED;
+	all->rc.pl_dir_y * MOVE_SPEED)] != '1')
+		all->map_data.pl_x += all->rc.pl_dir_y * MOVE_SPEED;
 }
 
 void	d_move(t_all_data *all)
 {
-	if (all->map_data.map[(int)(all->map_data.pl_y + all->rc.ray_dir_x *
+	if (all->map_data.map[(int)(all->map_data.pl_y + all->rc.pl_dir_x *
 	MOVE_SPEED)][(int) all->map_data.pl_x] != '1')
-		all->map_data.pl_y += all->rc.ray_dir_x * MOVE_SPEED;
+		all->map_data.pl_y += all->rc.pl_dir_x * MOVE_SPEED;
 	if (all->map_data.map[(int)all->map_data.pl_y][(int)(all->map_data.pl_x -
-	all->rc.ray_dir_y * MOVE_SPEED)] != '1')
-		all->map_data.pl_x -= all->rc.ray_dir_y * MOVE_SPEED;
+	all->rc.pl_dir_y * MOVE_SPEED)] != '1')
+		all->map_data.pl_x -= all->rc.pl_dir_y * MOVE_SPEED;
 }

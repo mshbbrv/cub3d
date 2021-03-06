@@ -252,6 +252,12 @@
 		<Unit filename="/Users/thjonell/CLionProjects/cub3d/source/render.c">
 			<Option target="cub3d"/>
 		</Unit>
+		<Unit filename="/Users/thjonell/CLionProjects/cub3d/source/render_sprite.c">
+			<Option target="cub3d"/>
+		</Unit>
+		<Unit filename="/Users/thjonell/CLionProjects/cub3d/source/render_sprite_utils.c">
+			<Option target="cub3d"/>
+		</Unit>
 		<Unit filename="/Users/thjonell/CLionProjects/cub3d/source/render_walls.c">
 			<Option target="cub3d"/>
 		</Unit>
@@ -262,6 +268,12 @@
 			<Option target="cub3d"/>
 		</Unit>
 		<Unit filename="/Users/thjonell/CLionProjects/cub3d/source/rotation.c">
+			<Option target="cub3d"/>
+		</Unit>
+		<Unit filename="/Users/thjonell/CLionProjects/cub3d/source/sprite_player_init.c">
+			<Option target="cub3d"/>
+		</Unit>
+		<Unit filename="/Users/thjonell/CLionProjects/cub3d/source/texture_init.c">
 			<Option target="cub3d"/>
 		</Unit>
 		<Unit filename="/Users/thjonell/CLionProjects/cub3d/source/texture_parse.c">

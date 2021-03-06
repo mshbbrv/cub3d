@@ -73,4 +73,8 @@ add_executable(cub3d
         source/key_on_off.c
         source/mlx_utils.c
         source/render_walls_utils.c
-        source/render_walls_utils2.c)
+        source/render_walls_utils2.c
+        source/render_sprite.c
+        source/texture_init.c
+        source/sprite_player_init.c
+        source/render_sprite_utils.c)

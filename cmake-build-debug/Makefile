@@ -1439,6 +1439,60 @@ source/render.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/cub3d.dir/build.make CMakeFiles/cub3d.dir/source/render.c.s
 .PHONY : source/render.c.s
 
+source/render_sprite.o: source/render_sprite.c.o
+
+.PHONY : source/render_sprite.o
+
+# target to build an object file
+source/render_sprite.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cub3d.dir/build.make CMakeFiles/cub3d.dir/source/render_sprite.c.o
+.PHONY : source/render_sprite.c.o
+
+source/render_sprite.i: source/render_sprite.c.i
+
+.PHONY : source/render_sprite.i
+
+# target to preprocess a source file
+source/render_sprite.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cub3d.dir/build.make CMakeFiles/cub3d.dir/source/render_sprite.c.i
+.PHONY : source/render_sprite.c.i
+
+source/render_sprite.s: source/render_sprite.c.s
+
+.PHONY : source/render_sprite.s
+
+# target to generate assembly for a file
+source/render_sprite.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cub3d.dir/build.make CMakeFiles/cub3d.dir/source/render_sprite.c.s
+.PHONY : source/render_sprite.c.s
+
+source/render_sprite_utils.o: source/render_sprite_utils.c.o
+
+.PHONY : source/render_sprite_utils.o
+
+# target to build an object file
+source/render_sprite_utils.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cub3d.dir/build.make CMakeFiles/cub3d.dir/source/render_sprite_utils.c.o
+.PHONY : source/render_sprite_utils.c.o
+
+source/render_sprite_utils.i: source/render_sprite_utils.c.i
+
+.PHONY : source/render_sprite_utils.i
+
+# target to preprocess a source file
+source/render_sprite_utils.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cub3d.dir/build.make CMakeFiles/cub3d.dir/source/render_sprite_utils.c.i
+.PHONY : source/render_sprite_utils.c.i
+
+source/render_sprite_utils.s: source/render_sprite_utils.c.s
+
+.PHONY : source/render_sprite_utils.s
+
+# target to generate assembly for a file
+source/render_sprite_utils.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cub3d.dir/build.make CMakeFiles/cub3d.dir/source/render_sprite_utils.c.s
+.PHONY : source/render_sprite_utils.c.s
+
 source/render_walls.o: source/render_walls.c.o
 
 .PHONY : source/render_walls.o
@@ -1546,6 +1600,60 @@ source/rotation.s: source/rotation.c.s
 source/rotation.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/cub3d.dir/build.make CMakeFiles/cub3d.dir/source/rotation.c.s
 .PHONY : source/rotation.c.s
+
+source/sprite_player_init.o: source/sprite_player_init.c.o
+
+.PHONY : source/sprite_player_init.o
+
+# target to build an object file
+source/sprite_player_init.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cub3d.dir/build.make CMakeFiles/cub3d.dir/source/sprite_player_init.c.o
+.PHONY : source/sprite_player_init.c.o
+
+source/sprite_player_init.i: source/sprite_player_init.c.i
+
+.PHONY : source/sprite_player_init.i
+
+# target to preprocess a source file
+source/sprite_player_init.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cub3d.dir/build.make CMakeFiles/cub3d.dir/source/sprite_player_init.c.i
+.PHONY : source/sprite_player_init.c.i
+
+source/sprite_player_init.s: source/sprite_player_init.c.s
+
+.PHONY : source/sprite_player_init.s
+
+# target to generate assembly for a file
+source/sprite_player_init.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cub3d.dir/build.make CMakeFiles/cub3d.dir/source/sprite_player_init.c.s
+.PHONY : source/sprite_player_init.c.s
+
+source/texture_init.o: source/texture_init.c.o
+
+.PHONY : source/texture_init.o
+
+# target to build an object file
+source/texture_init.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cub3d.dir/build.make CMakeFiles/cub3d.dir/source/texture_init.c.o
+.PHONY : source/texture_init.c.o
+
+source/texture_init.i: source/texture_init.c.i
+
+.PHONY : source/texture_init.i
+
+# target to preprocess a source file
+source/texture_init.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cub3d.dir/build.make CMakeFiles/cub3d.dir/source/texture_init.c.i
+.PHONY : source/texture_init.c.i
+
+source/texture_init.s: source/texture_init.c.s
+
+.PHONY : source/texture_init.s
+
+# target to generate assembly for a file
+source/texture_init.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cub3d.dir/build.make CMakeFiles/cub3d.dir/source/texture_init.c.s
+.PHONY : source/texture_init.c.s
 
 source/texture_parse.o: source/texture_parse.c.o
 
@@ -1754,6 +1862,12 @@ help:
 	@echo "... source/render.o"
 	@echo "... source/render.i"
 	@echo "... source/render.s"
+	@echo "... source/render_sprite.o"
+	@echo "... source/render_sprite.i"
+	@echo "... source/render_sprite.s"
+	@echo "... source/render_sprite_utils.o"
+	@echo "... source/render_sprite_utils.i"
+	@echo "... source/render_sprite_utils.s"
 	@echo "... source/render_walls.o"
 	@echo "... source/render_walls.i"
 	@echo "... source/render_walls.s"
@@ -1766,6 +1880,12 @@ help:
 	@echo "... source/rotation.o"
 	@echo "... source/rotation.i"
 	@echo "... source/rotation.s"
+	@echo "... source/sprite_player_init.o"
+	@echo "... source/sprite_player_init.i"
+	@echo "... source/sprite_player_init.s"
+	@echo "... source/texture_init.o"
+	@echo "... source/texture_init.i"
+	@echo "... source/texture_init.s"
 	@echo "... source/texture_parse.o"
 	@echo "... source/texture_parse.i"
 	@echo "... source/texture_parse.s"

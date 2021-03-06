@@ -158,6 +158,18 @@ CMakeFiles/cub3d.dir/source/render.c.o: ../includes/libft.h
 CMakeFiles/cub3d.dir/source/render.c.o: ../includes/mlx.h
 CMakeFiles/cub3d.dir/source/render.c.o: ../source/render.c
 
+CMakeFiles/cub3d.dir/source/render_sprite.c.o: ../includes/cub3d.h
+CMakeFiles/cub3d.dir/source/render_sprite.c.o: ../includes/get_next_line.h
+CMakeFiles/cub3d.dir/source/render_sprite.c.o: ../includes/libft.h
+CMakeFiles/cub3d.dir/source/render_sprite.c.o: ../includes/mlx.h
+CMakeFiles/cub3d.dir/source/render_sprite.c.o: ../source/render_sprite.c
+
+CMakeFiles/cub3d.dir/source/render_sprite_utils.c.o: ../includes/cub3d.h
+CMakeFiles/cub3d.dir/source/render_sprite_utils.c.o: ../includes/get_next_line.h
+CMakeFiles/cub3d.dir/source/render_sprite_utils.c.o: ../includes/libft.h
+CMakeFiles/cub3d.dir/source/render_sprite_utils.c.o: ../includes/mlx.h
+CMakeFiles/cub3d.dir/source/render_sprite_utils.c.o: ../source/render_sprite_utils.c
+
 CMakeFiles/cub3d.dir/source/render_walls.c.o: ../includes/cub3d.h
 CMakeFiles/cub3d.dir/source/render_walls.c.o: ../includes/get_next_line.h
 CMakeFiles/cub3d.dir/source/render_walls.c.o: ../includes/libft.h
@@ -181,6 +193,18 @@ CMakeFiles/cub3d.dir/source/rotation.c.o: ../includes/get_next_line.h
 CMakeFiles/cub3d.dir/source/rotation.c.o: ../includes/libft.h
 CMakeFiles/cub3d.dir/source/rotation.c.o: ../includes/mlx.h
 CMakeFiles/cub3d.dir/source/rotation.c.o: ../source/rotation.c
+
+CMakeFiles/cub3d.dir/source/sprite_player_init.c.o: ../includes/cub3d.h
+CMakeFiles/cub3d.dir/source/sprite_player_init.c.o: ../includes/get_next_line.h
+CMakeFiles/cub3d.dir/source/sprite_player_init.c.o: ../includes/libft.h
+CMakeFiles/cub3d.dir/source/sprite_player_init.c.o: ../includes/mlx.h
+CMakeFiles/cub3d.dir/source/sprite_player_init.c.o: ../source/sprite_player_init.c
+
+CMakeFiles/cub3d.dir/source/texture_init.c.o: ../includes/cub3d.h
+CMakeFiles/cub3d.dir/source/texture_init.c.o: ../includes/get_next_line.h
+CMakeFiles/cub3d.dir/source/texture_init.c.o: ../includes/libft.h
+CMakeFiles/cub3d.dir/source/texture_init.c.o: ../includes/mlx.h
+CMakeFiles/cub3d.dir/source/texture_init.c.o: ../source/texture_init.c
 
 CMakeFiles/cub3d.dir/source/texture_parse.c.o: ../includes/cub3d.h
 CMakeFiles/cub3d.dir/source/texture_parse.c.o: ../includes/get_next_line.h

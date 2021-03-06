@@ -158,6 +158,18 @@ CMakeFiles/cub3d.dir/source/render.c.o
  ../includes/libft.h
  ../includes/mlx.h
  /Users/thjonell/CLionProjects/cub3d/source/render.c
+CMakeFiles/cub3d.dir/source/render_sprite.c.o
+ ../includes/cub3d.h
+ ../includes/get_next_line.h
+ ../includes/libft.h
+ ../includes/mlx.h
+ /Users/thjonell/CLionProjects/cub3d/source/render_sprite.c
+CMakeFiles/cub3d.dir/source/render_sprite_utils.c.o
+ ../includes/cub3d.h
+ ../includes/get_next_line.h
+ ../includes/libft.h
+ ../includes/mlx.h
+ /Users/thjonell/CLionProjects/cub3d/source/render_sprite_utils.c
 CMakeFiles/cub3d.dir/source/render_walls.c.o
  ../includes/cub3d.h
  ../includes/get_next_line.h
@@ -182,6 +194,18 @@ CMakeFiles/cub3d.dir/source/rotation.c.o
  ../includes/libft.h
  ../includes/mlx.h
  /Users/thjonell/CLionProjects/cub3d/source/rotation.c
+CMakeFiles/cub3d.dir/source/sprite_player_init.c.o
+ ../includes/cub3d.h
+ ../includes/get_next_line.h
+ ../includes/libft.h
+ ../includes/mlx.h
+ /Users/thjonell/CLionProjects/cub3d/source/sprite_player_init.c
+CMakeFiles/cub3d.dir/source/texture_init.c.o
+ ../includes/cub3d.h
+ ../includes/get_next_line.h
+ ../includes/libft.h
+ ../includes/mlx.h
+ /Users/thjonell/CLionProjects/cub3d/source/texture_init.c
 CMakeFiles/cub3d.dir/source/texture_parse.c.o
  ../includes/cub3d.h
  ../includes/get_next_line.h

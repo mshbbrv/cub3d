@@ -28,5 +28,6 @@ void	render_walls(t_all_data *all)
 		wall_hit_calc(all);
 		draw_walls(all, x);
 		x++;
+		all->sprite_data.z_buffer[x] = all->rc.perp_dist;
 	}
 }

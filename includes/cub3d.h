@@ -6,7 +6,7 @@
 /*   By: thjonell <thjonell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/01 13:48:32 by thjonell          #+#    #+#             */
-/*   Updated: 2021/03/04 20:04:56 by thjonell         ###   ########.fr       */
+/*   Updated: 2021/03/06 20:29:06 by thjonell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@
 # define pl_validate(x) ((x) == 'N' || (x) == 'S' || (x) == 'E' || (x) == 'W')
 # define END_PARSE_ELEM 1
 # define PARSE_SUCCESS 0
-# define MOVE_SPEED 0.06
+# define MOVE_SPEED 0.1
 # define ROT 0.05
 
 typedef struct	s_map_data
@@ -124,20 +124,52 @@ typedef struct	s_keys_data
 	int			right;
 }				t_keys_data;
 
+typedef struct	s_sprite
+{
+	double	x;
+	double	y;
+
+}				t_sprite;
+
+typedef struct	s_sprite_data
+{
+	double		*z_buffer;
+	int 		num_sprites;
+	t_sprite	*sprite;
+	double		*dist;
+	double		x;
+	double		y;
+	double		inv_det;
+	double		trans_x;
+	double 		trans_y;
+	int 		screen_x;
+	int 		height;
+	int 		width;
+	int 		draw_start_y;
+	int 		draw_end_y;
+	int			draw_start_x;
+	int 		draw_end_x;
+	int 		tex_x;
+	int 		tex_y;
+	unsigned int color;
+}				t_sprite_data;
+
 typedef struct	s_all_data
 {
-	t_vars		vars;
-	t_map_data	map_data;
-	t_data		img_data;
-	t_world		parse_data;
-	t_ray_cast	rc;
-	t_wall		wall;
-	t_keys_data	keys_data;
-	t_data		n_texture;
-	t_data		s_texture;
-	t_data		e_texture;
-	t_data		w_texture;
-	t_data		texture;
+	t_vars			vars;
+	t_map_data		map_data;
+	t_data			img_data;
+	t_world			parse_data;
+	t_ray_cast		rc;
+	t_wall			wall;
+	t_keys_data		keys_data;
+	t_sprite_data	sprite_data;
+	t_data			n_texture;
+	t_data			s_texture;
+	t_data			e_texture;
+	t_data			w_texture;
+	t_data			texture;
+	t_data			sprite_texture;
 }				t_all_data;
 
 void	world_parse(char *argv);
@@ -171,4 +203,14 @@ void	wall_hit_calc(t_all_data *all);
 void 	current_tex_calc(t_all_data *all);
 unsigned int	tex_color(t_data *texture, int x, int y);
 void 	perp_dis_calc(t_all_data *all);
+void	player_dir_init(t_all_data *all, char player);
+void	player_init(t_all_data *all);
+void	wall_tex_init(t_all_data *all);
+void 	sprite_tex_init(t_all_data *all);
+void	sprite_player_init(t_all_data *all);
+void	texture_init(t_all_data *all);
+void	sprite_width_calc(t_all_data *all);
+void	sprite_height_calc(t_all_data *all);
+void	draw_sprite(t_all_data *all);
+void	render_sprite(t_all_data *all);
 #endif
