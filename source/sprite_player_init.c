@@ -6,7 +6,7 @@
 /*   By: thjonell <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/06 16:05:54 by thjonell          #+#    #+#             */
-/*   Updated: 2021/03/06 20:26:06 by thjonell         ###   ########.fr       */
+/*   Updated: 2021/03/07 19:59:57 by thjonell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,10 +92,9 @@ void	sprite_init(t_all_data *all)
 	int count;
 
 	all->sprite_data.num_sprites = num_sprites(all);
-	if (!(all->sprite_data.sprite = (t_sprite *)ft_calloc(all->sprite_data.num_sprites, sizeof
-	(t_sprite))))
+	if (!(all->sprite_data.sprite = (t_sprite *)malloc(all->sprite_data
+	.num_sprites * sizeof(t_sprite))))
 		error_handler("Can not allocate memory");
-
 	count = 0;
 	y = 0;
 	while (all->map_data.map[y])
@@ -113,16 +112,20 @@ void	sprite_init(t_all_data *all)
 		}
 		y++;
 	}
+	if (!(all->sprite_data.z_buffer = (double *)malloc(all->parse_data
+															   .x_res * sizeof(double))))
+		error_handler("Can not allocate memory");
+	if (!(all->sprite_data.dist = (double *)malloc(all->sprite_data
+														   .num_sprites * sizeof(double))))
+		error_handler("Can not allocate memory");
+	if (!(all->sprite_data.order = (int *)malloc(all->sprite_data
+														   .num_sprites *
+														   sizeof(int))))
+		error_handler("Can not allocate memory");
 }
 
 void	sprite_player_init(t_all_data *all)
 {
 	player_init(all);
 	sprite_init(all);
-	if (!(all->sprite_data.z_buffer = (double *)ft_calloc(all->parse_data
-			.x_res, sizeof(double))))
-		error_handler("Can not allocate memory");
-	if (!(all->sprite_data.dist = (double *)ft_calloc(all->sprite_data.num_sprites,
-												   sizeof(double))))
-		error_handler("Can not allocate memory");
 }

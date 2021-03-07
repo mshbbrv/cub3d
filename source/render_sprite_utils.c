@@ -31,42 +31,42 @@ void	sprite_width_calc(t_all_data *all)
 
 void 	draw(t_all_data *all)
 {
-	int	y;
 	int	d;
 
-	y = all->sprite_data.draw_start_y;
-	while (y < all->sprite_data.draw_end_y)
+	all->sprite_data.draw_start_y = -all->sprite_data.height / 2 +
+									all->parse_data.y_res / 2;
+	if (all->sprite_data.draw_start_y < 0)
+		all->sprite_data.draw_start_y = 0;
+	while (all->sprite_data.draw_start_y < all->sprite_data.draw_end_y)
 	{
-		d = y * 256 - all->parse_data.y_res * 128 +
+		d = all->sprite_data.draw_start_y * 256 - all->parse_data.y_res * 128 +
 			all->sprite_data.height * 128;
 		all->sprite_data.tex_y = ((d * all->sprite_texture
 				.height) / all->sprite_data.height) / 256;
-		all->sprite_data.color = tex_color_spr
-				(&all->sprite_texture, all->sprite_texture.width,
-				 all->sprite_texture.height);
+		all->sprite_data.color = tex_color(&all->sprite_texture,
+									 all->sprite_data.tex_x, all->sprite_data
+									 .tex_y);
 		if ((all->sprite_data.color & 0x00FFFFFF) != 0)
-			my_mlx_pixel_put(&all->img_data, all->sprite_data
-									 .draw_start_x,
-							 all->sprite_data.draw_start_y, all->sprite_data.color);
-		y++;
+			my_mlx_pixel_put(&all->img_data, all->sprite_data.draw_start_x,
+							 all->sprite_data.draw_start_y, all->sprite_data
+							 .color);
+		all->sprite_data.draw_start_y++;
 	}
 }
 
 void	draw_sprite(t_all_data *all)
 {
-	int stripe;
-
-	stripe = all->sprite_data.draw_start_x;
-	while (stripe < all->sprite_data.draw_end_x)
+	while (all->sprite_data.draw_start_x < all->sprite_data.draw_end_x)
 	{
-		all->sprite_data.tex_x = (int)(256 * (stripe - (-all->sprite_data
-				.width / 2 + all->sprite_data.screen_x)) *
-									   all->sprite_texture.width / all->sprite_data
-											   .width) / 256;
-		if (all->sprite_data.trans_y > 0 && stripe > 0 && stripe <
-														  all->parse_data.x_res && all->sprite_data.trans_y <
-																				   all->sprite_data.z_buffer[stripe])
+		all->sprite_data.tex_x = (int)(256 * (all->sprite_data.draw_start_x
+				- (-all->sprite_data.width / 2	+ all->sprite_data.screen_x))
+						* all->sprite_texture.width / all->sprite_data.width)
+								/ 256;
+		if (all->sprite_data.trans_y > 0 && all->sprite_data.draw_start_x >
+		0 && all->sprite_data.draw_start_x < all->parse_data.x_res &&
+		all->sprite_data.trans_y < all->sprite_data.z_buffer[all->sprite_data
+		 .draw_start_x])
 			draw(all);
-		stripe++;
+		all->sprite_data.draw_start_x++;
 	}
 }

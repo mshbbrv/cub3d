@@ -51,7 +51,7 @@ int	texture_parse(char ***line, char **str, int i)
 	if ((fd = open(*str, O_RDONLY)) < 0)
 	{
 		close(fd);
-		//error_handler("Сan not open texture file");
+		error_handler("Сan not open texture file");
 	}
 	close(fd);
 	return (PARSE_SUCCESS);

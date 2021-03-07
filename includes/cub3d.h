@@ -137,6 +137,7 @@ typedef struct	s_sprite_data
 	int 		num_sprites;
 	t_sprite	*sprite;
 	double		*dist;
+	int 		*order;
 	double		x;
 	double		y;
 	double		inv_det;
@@ -213,4 +214,5 @@ void	sprite_width_calc(t_all_data *all);
 void	sprite_height_calc(t_all_data *all);
 void	draw_sprite(t_all_data *all);
 void	render_sprite(t_all_data *all);
+unsigned int	tex_color_spr(t_data *texture, int x, int y);
 #endif

@@ -6,7 +6,7 @@
 /*   By: thjonell <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/02 21:35:02 by thjonell          #+#    #+#             */
-/*   Updated: 2021/03/04 21:00:00 by thjonell         ###   ########.fr       */
+/*   Updated: 2021/03/07 15:36:56 by thjonell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,9 +47,6 @@ void	w_move(t_all_data *all)
 	if (all->map_data.map[(int)all->map_data.pl_y][(int)(all->map_data.pl_x +
 	all->rc.pl_dir_x * MOVE_SPEED)] != '1')
 		all->map_data.pl_x += all->rc.pl_dir_x * MOVE_SPEED;
-	printf("y = %f | x = %f\n", all->map_data.pl_y, all->map_data.pl_x);
-	printf("dir_y = %f ", all->rc.ray_dir_y);
-	printf("dir_x = %f\n", all->rc.ray_dir_x);
 }
 
 void	s_move(t_all_data *all)
@@ -60,9 +57,6 @@ void	s_move(t_all_data *all)
 	if (all->map_data.map[(int)all->map_data.pl_y][(int)(all->map_data.pl_x -
 	all->rc.pl_dir_x * MOVE_SPEED)] != '1')
 		all->map_data.pl_x -= all->rc.pl_dir_x * MOVE_SPEED;
-	printf("y = %f | x = %f\n", all->map_data.pl_y, all->map_data.pl_x);
-	printf("dir_y = %f ", all->rc.ray_dir_y);
-	printf("dir_x = %f\n", all->rc.ray_dir_x);
 }
 
 void	a_move(t_all_data *all)
