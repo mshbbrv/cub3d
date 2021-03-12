@@ -36,7 +36,7 @@ unistd.h
 
 ../includes/mlx.h
 
-/Users/thjonell/CLionProjects/cub3d/source/main.c
+/Users/thjonell/CLionProjects/cub3d/source/render_walls.c
 cub3d.h
 /Users/thjonell/CLionProjects/cub3d/source/cub3d.h
 
