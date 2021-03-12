@@ -36,27 +36,7 @@ unistd.h
 
 ../includes/mlx.h
 
-/Users/thjonell/CLionProjects/cub3d/source/key_on_off.c
-cub3d.h
-/Users/thjonell/CLionProjects/cub3d/source/cub3d.h
-
 /Users/thjonell/CLionProjects/cub3d/source/main.c
-cub3d.h
-/Users/thjonell/CLionProjects/cub3d/source/cub3d.h
-
-/Users/thjonell/CLionProjects/cub3d/source/movement.c
-cub3d.h
-/Users/thjonell/CLionProjects/cub3d/source/cub3d.h
-
-/Users/thjonell/CLionProjects/cub3d/source/render_sprite.c
-cub3d.h
-/Users/thjonell/CLionProjects/cub3d/source/cub3d.h
-
-/Users/thjonell/CLionProjects/cub3d/source/render_sprite_utils.c
-cub3d.h
-/Users/thjonell/CLionProjects/cub3d/source/cub3d.h
-
-/Users/thjonell/CLionProjects/cub3d/source/rotation.c
 cub3d.h
 /Users/thjonell/CLionProjects/cub3d/source/cub3d.h
 

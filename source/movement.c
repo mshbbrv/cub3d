@@ -6,7 +6,7 @@
 /*   By: thjonell <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/02 21:35:02 by thjonell          #+#    #+#             */
-/*   Updated: 2021/03/12 14:32:34 by thjonell         ###   ########.fr       */
+/*   Updated: 2021/03/12 14:33:02 by thjonell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,8 @@ int		movement(t_all_data *all)
 	if (all->keys_data.esc)
 	{
 		mlx_destroy_window(all->vars.mlx, all->vars.win);
+		free_mem(all);
 		exit(0);
-		//free mem
 	}
 	render_walls(all);
 	render_sprite(all);

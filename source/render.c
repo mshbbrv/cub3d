@@ -6,7 +6,7 @@
 /*   By: thjonell <thjonell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/04 15:30:02 by thjonell          #+#    #+#             */
-/*   Updated: 2021/03/12 12:23:10 by thjonell         ###   ########.fr       */
+/*   Updated: 2021/03/12 13:40:18 by thjonell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,7 @@ void	screenshot(t_all_data *all)
 		height--;
 	}
 	close(fd);
+	free_mem(all);
 	exit(0);
 }
 

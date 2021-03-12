@@ -6,7 +6,7 @@
 /*   By: thjonell <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 14:38:51 by thjonell          #+#    #+#             */
-/*   Updated: 2021/03/12 13:51:51 by thjonell         ###   ########.fr       */
+/*   Updated: 2021/03/12 13:52:28 by thjonell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 int				close_window(t_all_data *all)
 {
 	mlx_destroy_window(all->vars.mlx, all->vars.win);
+	free_mem(all);
 	exit(0);
 }
 

@@ -6,7 +6,7 @@
 /*   By: thjonell <thjonell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/03 20:52:31 by thjonell          #+#    #+#             */
-/*   Updated: 2021/03/12 13:09:49 by thjonell         ###   ########.fr       */
+/*   Updated: 2021/03/12 17:36:05 by thjonell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,14 +57,18 @@ void	file_reader(char *argv, t_all_data *all, t_list **map_list)
 void	map_parse(t_list **map_list, int size, t_all_data *all)
 {
 	int			i;
+	t_list		*tmp;
 
 	if (!(all->map_data.map = (char **)ft_calloc(size + 1, sizeof(char *))))
 		error_handler("Can not allocate memory");
 	i = 0;
 	while (*map_list)
 	{
-		*(all->map_data.map + i++) = (*map_list)->content;
-		*map_list = (*map_list)->next;
+		*(all->map_data.map + i++) = ft_strdup((*map_list)->content);
+		tmp = (*map_list)->next;
+		free((*map_list)->content);
+		free(*map_list);
+		*map_list = tmp;
 	}
 	*(all->map_data.map + ++i) = NULL;
 	if (map_validate(all->map_data.map, size) == -1)
@@ -80,5 +84,4 @@ void	data_parsing(char *argv, t_all_data *all)
 	all->parse_data.y_res = 0;
 	file_reader(argv, all, &map_list);
 	map_parse(&map_list, ft_lstsize(map_list), all);
-	start_render(all);
 }

@@ -6,7 +6,7 @@
 /*   By: thjonell <thjonell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/01 13:48:32 by thjonell          #+#    #+#             */
-/*   Updated: 2021/03/12 13:09:49 by thjonell         ###   ########.fr       */
+/*   Updated: 2021/03/12 16:42:36 by thjonell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -171,9 +171,9 @@ typedef struct	s_all_data
 }				t_all_data;
 
 void	data_parsing(char *argv, t_all_data *all);
-int		r_parse(const char *line, t_all_data *all, int i);
+int		r_parse(char *line, t_all_data *all, int i);
 int		texture_parse(char *line, char **str, int i);
-int		color_parse(const char *line, unsigned int *color, int i);
+int		color_parse(char *line, unsigned int *color, int i);
 int		map_validate(char **map, int size);
 void	error_handler(char *error_str);
 void	start_render(t_all_data *all);
@@ -210,4 +210,5 @@ void	sprite_height_calc(t_all_data *all);
 void	draw_sprite(t_all_data *all);
 void	render_sprite(t_all_data *all);
 void	screen_size_init(t_all_data *all);
+void	free_mem(t_all_data *all);
 #endif

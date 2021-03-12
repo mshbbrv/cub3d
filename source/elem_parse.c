@@ -6,13 +6,13 @@
 /*   By: thjonell <thjonell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/07 21:23:38 by thjonell          #+#    #+#             */
-/*   Updated: 2021/03/12 13:27:31 by thjonell         ###   ########.fr       */
+/*   Updated: 2021/03/12 16:41:28 by thjonell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-int	color_parse(const char *line, unsigned int *color, int i)
+int	color_parse(char *line, unsigned int *color, int i)
 {
 	int j;
 	int	tmp[3];
@@ -31,14 +31,14 @@ int	color_parse(const char *line, unsigned int *color, int i)
 		if (tmp[j] > 255 || tmp[j] < 0 || (*(line + i) != ',' && j < 2) || (*
 		(line + i) != '\0' && j == 2))
 		{
-			//free(line);
+			free(line);
 			error_handler("Invalid color set");
 		}
 		j++;
 		i++;
 	}
 	*color = (tmp[0] << 16 | tmp[1] << 8 | tmp[2]);
-	//free(line);
+	free(line);
 	return (PARSE_SUCCESS);
 }
 
@@ -48,7 +48,8 @@ int	texture_parse(char *line, char **str, int i)
 
 	while (*(line + i) == ' ')
 		i++;
-	*str = line + i;
+	*str = ft_strdup(line + i);
+	free(line);
 	if ((fd = open(*str, O_RDONLY)) < 0)
 	{
 		close(fd);
@@ -58,7 +59,7 @@ int	texture_parse(char *line, char **str, int i)
 	return (PARSE_SUCCESS);
 }
 
-int	r_parse(const char *line, t_all_data *all, int i)
+int	r_parse(char *line, t_all_data *all, int i)
 {
 	while (*(line + i) == ' ')
 		i++;
@@ -80,12 +81,15 @@ int	r_parse(const char *line, t_all_data *all, int i)
 		}
 		if ((!ft_isdigit(*(line + i)) && *(line + i) != '\0'))
 		{
-			//free(line);
+			free(line);
 			error_handler("Invalid screen resolution");
 		}
-		//free(line);
 	}
 	else
+	{
+		free(line);
 		error_handler("Invalid screen resolution");
+	}
+	free(line);
 	return (PARSE_SUCCESS);
 }
