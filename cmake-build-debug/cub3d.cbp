@@ -49,7 +49,6 @@
 					<Add directory="/Users/thjonell/CLionProjects/cub3d/libraries"/>
 					<Add directory="/Users/thjonell/CLionProjects/cub3d/includes"/>
 					<Add directory="/Users/thjonell/CLionProjects/cub3d/libft"/>
-					<Add directory="/Users/thjonell/CLionProjects/cub3d/cub3d"/>
 					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1"/>
 					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/11.0.0/include"/>
 					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include"/>
@@ -75,7 +74,6 @@
 					<Add directory="/Users/thjonell/CLionProjects/cub3d/libraries"/>
 					<Add directory="/Users/thjonell/CLionProjects/cub3d/includes"/>
 					<Add directory="/Users/thjonell/CLionProjects/cub3d/libft"/>
-					<Add directory="/Users/thjonell/CLionProjects/cub3d/cub3d"/>
 					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/../include/c++/v1"/>
 					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/11.0.0/include"/>
 					<Add directory="/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include"/>
@@ -225,13 +223,19 @@
 		<Unit filename="/Users/thjonell/CLionProjects/cub3d/libraries/libft.a">
 			<Option target="cub3d"/>
 		</Unit>
-		<Unit filename="/Users/thjonell/CLionProjects/cub3d/libraries/libmlx.a">
+		<Unit filename="/Users/thjonell/CLionProjects/cub3d/source/data_parsing.c">
+			<Option target="cub3d"/>
+		</Unit>
+		<Unit filename="/Users/thjonell/CLionProjects/cub3d/source/elem_parse.c">
 			<Option target="cub3d"/>
 		</Unit>
 		<Unit filename="/Users/thjonell/CLionProjects/cub3d/source/get_next_line.c">
 			<Option target="cub3d"/>
 		</Unit>
 		<Unit filename="/Users/thjonell/CLionProjects/cub3d/source/get_next_line_utils.c">
+			<Option target="cub3d"/>
+		</Unit>
+		<Unit filename="/Users/thjonell/CLionProjects/cub3d/source/init_utils.c">
 			<Option target="cub3d"/>
 		</Unit>
 		<Unit filename="/Users/thjonell/CLionProjects/cub3d/source/key_on_off.c">
@@ -274,12 +278,6 @@
 			<Option target="cub3d"/>
 		</Unit>
 		<Unit filename="/Users/thjonell/CLionProjects/cub3d/source/texture_init.c">
-			<Option target="cub3d"/>
-		</Unit>
-		<Unit filename="/Users/thjonell/CLionProjects/cub3d/source/texture_parse.c">
-			<Option target="cub3d"/>
-		</Unit>
-		<Unit filename="/Users/thjonell/CLionProjects/cub3d/source/world_parse.c">
 			<Option target="cub3d"/>
 		</Unit>
 		<Unit filename="/Users/thjonell/CLionProjects/cub3d/CMakeLists.txt">

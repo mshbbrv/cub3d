@@ -12,7 +12,7 @@
 
 #include "cub3d.h"
 
-int 	key_on(int keycode, t_all_data *all)
+int	key_on(int keycode, t_all_data *all)
 {
 	if (keycode == 13)
 		all->keys_data.w = 1;
@@ -31,7 +31,7 @@ int 	key_on(int keycode, t_all_data *all)
 	return (0);
 }
 
-int		key_off(int keycode, t_all_data *all)
+int	key_off(int keycode, t_all_data *all)
 {
 	if (keycode == 13)
 		all->keys_data.w = 0;

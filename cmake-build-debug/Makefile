@@ -1223,6 +1223,60 @@ libft/ft_toupper.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/cub3d.dir/build.make CMakeFiles/cub3d.dir/libft/ft_toupper.c.s
 .PHONY : libft/ft_toupper.c.s
 
+source/data_parsing.o: source/data_parsing.c.o
+
+.PHONY : source/data_parsing.o
+
+# target to build an object file
+source/data_parsing.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cub3d.dir/build.make CMakeFiles/cub3d.dir/source/data_parsing.c.o
+.PHONY : source/data_parsing.c.o
+
+source/data_parsing.i: source/data_parsing.c.i
+
+.PHONY : source/data_parsing.i
+
+# target to preprocess a source file
+source/data_parsing.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cub3d.dir/build.make CMakeFiles/cub3d.dir/source/data_parsing.c.i
+.PHONY : source/data_parsing.c.i
+
+source/data_parsing.s: source/data_parsing.c.s
+
+.PHONY : source/data_parsing.s
+
+# target to generate assembly for a file
+source/data_parsing.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cub3d.dir/build.make CMakeFiles/cub3d.dir/source/data_parsing.c.s
+.PHONY : source/data_parsing.c.s
+
+source/elem_parse.o: source/elem_parse.c.o
+
+.PHONY : source/elem_parse.o
+
+# target to build an object file
+source/elem_parse.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cub3d.dir/build.make CMakeFiles/cub3d.dir/source/elem_parse.c.o
+.PHONY : source/elem_parse.c.o
+
+source/elem_parse.i: source/elem_parse.c.i
+
+.PHONY : source/elem_parse.i
+
+# target to preprocess a source file
+source/elem_parse.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cub3d.dir/build.make CMakeFiles/cub3d.dir/source/elem_parse.c.i
+.PHONY : source/elem_parse.c.i
+
+source/elem_parse.s: source/elem_parse.c.s
+
+.PHONY : source/elem_parse.s
+
+# target to generate assembly for a file
+source/elem_parse.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cub3d.dir/build.make CMakeFiles/cub3d.dir/source/elem_parse.c.s
+.PHONY : source/elem_parse.c.s
+
 source/get_next_line.o: source/get_next_line.c.o
 
 .PHONY : source/get_next_line.o
@@ -1276,6 +1330,33 @@ source/get_next_line_utils.s: source/get_next_line_utils.c.s
 source/get_next_line_utils.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/cub3d.dir/build.make CMakeFiles/cub3d.dir/source/get_next_line_utils.c.s
 .PHONY : source/get_next_line_utils.c.s
+
+source/init_utils.o: source/init_utils.c.o
+
+.PHONY : source/init_utils.o
+
+# target to build an object file
+source/init_utils.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cub3d.dir/build.make CMakeFiles/cub3d.dir/source/init_utils.c.o
+.PHONY : source/init_utils.c.o
+
+source/init_utils.i: source/init_utils.c.i
+
+.PHONY : source/init_utils.i
+
+# target to preprocess a source file
+source/init_utils.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cub3d.dir/build.make CMakeFiles/cub3d.dir/source/init_utils.c.i
+.PHONY : source/init_utils.c.i
+
+source/init_utils.s: source/init_utils.c.s
+
+.PHONY : source/init_utils.s
+
+# target to generate assembly for a file
+source/init_utils.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cub3d.dir/build.make CMakeFiles/cub3d.dir/source/init_utils.c.s
+.PHONY : source/init_utils.c.s
 
 source/key_on_off.o: source/key_on_off.c.o
 
@@ -1655,60 +1736,6 @@ source/texture_init.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/cub3d.dir/build.make CMakeFiles/cub3d.dir/source/texture_init.c.s
 .PHONY : source/texture_init.c.s
 
-source/texture_parse.o: source/texture_parse.c.o
-
-.PHONY : source/texture_parse.o
-
-# target to build an object file
-source/texture_parse.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/cub3d.dir/build.make CMakeFiles/cub3d.dir/source/texture_parse.c.o
-.PHONY : source/texture_parse.c.o
-
-source/texture_parse.i: source/texture_parse.c.i
-
-.PHONY : source/texture_parse.i
-
-# target to preprocess a source file
-source/texture_parse.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/cub3d.dir/build.make CMakeFiles/cub3d.dir/source/texture_parse.c.i
-.PHONY : source/texture_parse.c.i
-
-source/texture_parse.s: source/texture_parse.c.s
-
-.PHONY : source/texture_parse.s
-
-# target to generate assembly for a file
-source/texture_parse.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/cub3d.dir/build.make CMakeFiles/cub3d.dir/source/texture_parse.c.s
-.PHONY : source/texture_parse.c.s
-
-source/world_parse.o: source/world_parse.c.o
-
-.PHONY : source/world_parse.o
-
-# target to build an object file
-source/world_parse.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/cub3d.dir/build.make CMakeFiles/cub3d.dir/source/world_parse.c.o
-.PHONY : source/world_parse.c.o
-
-source/world_parse.i: source/world_parse.c.i
-
-.PHONY : source/world_parse.i
-
-# target to preprocess a source file
-source/world_parse.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/cub3d.dir/build.make CMakeFiles/cub3d.dir/source/world_parse.c.i
-.PHONY : source/world_parse.c.i
-
-source/world_parse.s: source/world_parse.c.s
-
-.PHONY : source/world_parse.s
-
-# target to generate assembly for a file
-source/world_parse.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/cub3d.dir/build.make CMakeFiles/cub3d.dir/source/world_parse.c.s
-.PHONY : source/world_parse.c.s
-
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -1838,12 +1865,21 @@ help:
 	@echo "... libft/ft_toupper.o"
 	@echo "... libft/ft_toupper.i"
 	@echo "... libft/ft_toupper.s"
+	@echo "... source/data_parsing.o"
+	@echo "... source/data_parsing.i"
+	@echo "... source/data_parsing.s"
+	@echo "... source/elem_parse.o"
+	@echo "... source/elem_parse.i"
+	@echo "... source/elem_parse.s"
 	@echo "... source/get_next_line.o"
 	@echo "... source/get_next_line.i"
 	@echo "... source/get_next_line.s"
 	@echo "... source/get_next_line_utils.o"
 	@echo "... source/get_next_line_utils.i"
 	@echo "... source/get_next_line_utils.s"
+	@echo "... source/init_utils.o"
+	@echo "... source/init_utils.i"
+	@echo "... source/init_utils.s"
 	@echo "... source/key_on_off.o"
 	@echo "... source/key_on_off.i"
 	@echo "... source/key_on_off.s"
@@ -1886,12 +1922,6 @@ help:
 	@echo "... source/texture_init.o"
 	@echo "... source/texture_init.i"
 	@echo "... source/texture_init.s"
-	@echo "... source/texture_parse.o"
-	@echo "... source/texture_parse.i"
-	@echo "... source/texture_parse.s"
-	@echo "... source/world_parse.o"
-	@echo "... source/world_parse.i"
-	@echo "... source/world_parse.s"
 .PHONY : help
 
 

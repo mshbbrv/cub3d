@@ -6,7 +6,7 @@
 #    By: thjonell <thjonell@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/10/29 20:54:40 by thjonell          #+#    #+#              #
-#    Updated: 2021/03/03 13:23:59 by thjonell         ###   ########.fr        #
+#    Updated: 2021/03/11 17:40:16 by thjonell         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,10 +15,12 @@ MLX_NAME	= mlx
 CC			= gcc
 RM			= rm -rf
 CFLAGS		= -Wall -Wextra -Werror
-SRCS_LIST	= main.c map_validate.c texture_parse.c world_parse.c \
+SRCS_LIST	= main.c map_validate.c elem_parse.c data_parsing.c \
 			get_next_line.c get_next_line_utils.c render.c render_walls.c \
 			key_on_off.c mlx_utils.c movement.c render_walls_utils.c \
-			render_walls_utils2.c rotation.c
+			render_walls_utils2.c rotation.c render_sprite.c texture_init.c \
+			sprite_player_init.c render_sprite_utils.c init_utils.c
+
 SRCS		= $(addprefix $(SRCS_DIR)/, $(SRCS_LIST))
 LIB_FT		= -L$(LIB_DIR) -lft
 LIB_MLX		= -L$(LIB_DIR) -lmlx -framework OpenGL -framework Appkit

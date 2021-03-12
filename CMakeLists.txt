@@ -1,18 +1,15 @@
 cmake_minimum_required(VERSION 3.17)
 project(cub3d)
 set(CMAKE_C_STANDARD 99)
-set(CMAKE_C_FLAGS "-g3 -lmlx -framework OpenGL -framework AppKit")
-#set(CMAKE_C_FLAGS "-Lmlx -lmlx -framework OpenGL -framework AppKit")
-#set(CMAKE_C_FLAGS "-Wall -Werror -Wextra")
+set(CMAKE_C_FLAGS "-lmlx -framework OpenGL -framework AppKit")
 link_directories(/usr/local/lib)
 include_directories(/usr/local/include)
-file(GLOB SOURCE_LIBFT "libft/*.c") #ПРОХОДИТ ПО ПАПКЕ СОБИРАЯ ВСЕ ФАИЛЫ
-#file(GLOB LIBRARIES "libmlx.dylib")
+#file(GLOB SOURCE_LIBFT "libft/*.c") #ПРОХОДИТ ПО ПАПКЕ СОБИРАЯ ВСЕ ФАИЛЫ
+#file(GLOB LIBRARIES "libraries/libmlx.dylib")
 include_directories(source)
 include_directories(libraries)
 include_directories(includes)
 include_directories(libft)
-include_directories(cub3d)
 add_executable(cub3d
         libft/ft_atoi.c
         libft/ft_bzero.c
@@ -61,12 +58,11 @@ add_executable(cub3d
         source/get_next_line_utils.c
         libraries/libft.a
         includes/cub3d.h
-        libraries/libmlx.a
         source/main.c
         source/map_validate.c
         source/render.c
-        source/texture_parse.c
-        source/world_parse.c
+        source/elem_parse.c
+        source/data_parsing.c
         source/render_walls.c
         source/movement.c
         source/rotation.c
@@ -77,4 +73,5 @@ add_executable(cub3d
         source/render_sprite.c
         source/texture_init.c
         source/sprite_player_init.c
-        source/render_sprite_utils.c)
+        source/render_sprite_utils.c
+        source/init_utils.c)

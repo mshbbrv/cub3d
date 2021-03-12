@@ -6,7 +6,7 @@
 /*   By: thjonell <thjonell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/07 16:11:38 by thjonell          #+#    #+#             */
-/*   Updated: 2020/12/21 17:44:40 by thjonell         ###   ########.fr       */
+/*   Updated: 2021/03/12 13:02:05 by thjonell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	error_handler(char *error_str)
 	exit(EXIT_FAILURE);
 }
 
-void	file_validate(char *file)
+void	file_ext_validate(const char *file)
 {
 	int	i;
 
@@ -32,11 +32,24 @@ void	file_validate(char *file)
 		error_handler("Invalid file extension");
 }
 
+void	screenshot_validate(char *str, t_all_data *all)
+{
+	if (ft_strncmp("--save", str, ft_strlen("--save")) == 0)
+		all->screenshot = 1;
+	else
+		error_handler("Invalid argument");
+}
+
 int		main(int argc, char **argv)
 {
-	if (argc != 2)
+	t_all_data all;
+
+	all.screenshot = 0;
+	if (argc < 2 || argc > 3)
 		error_handler("Invalid number of arguments");
-	file_validate(argv[1]);
-	world_parse(argv[1]);
+	file_ext_validate(argv[1]);
+	if (argc == 3)
+		screenshot_validate(argv[2], &all);
+	data_parsing(argv[1], &all);
 	return (0);
 }

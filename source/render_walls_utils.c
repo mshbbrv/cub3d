@@ -6,7 +6,7 @@
 /*   By: thjonell <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 14:30:27 by thjonell          #+#    #+#             */
-/*   Updated: 2021/03/07 21:08:26 by thjonell         ###   ########.fr       */
+/*   Updated: 2021/03/12 14:11:16 by thjonell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ void	ray_calc(t_all_data *all, int x)
 	all->rc.map_x = (int)all->map_data.pl_x;
 	all->rc.delta_y = fabs(1 / all->rc.ray_dir_y);
 	all->rc.delta_x = fabs(1 / all->rc.ray_dir_x);
-
 }
 
 void	step_calc(t_all_data *all)
@@ -32,25 +31,25 @@ void	step_calc(t_all_data *all)
 	{
 		all->rc.step_x = -1;
 		all->rc.side_dist_x = (all->map_data.pl_x - all->rc.map_x) *
-							  all->rc.delta_x;
+		all->rc.delta_x;
 	}
 	else
 	{
 		all->rc.step_x = 1;
 		all->rc.side_dist_x = (all->rc.map_x + 1.0 - all->map_data.pl_x)
-							  * all->rc.delta_x;
+		* all->rc.delta_x;
 	}
 	if (all->rc.ray_dir_y < 0)
 	{
 		all->rc.step_y = -1;
 		all->rc.side_dist_y = (all->map_data.pl_y - all->rc.map_y) *
-							  all->rc.delta_y;
+		all->rc.delta_y;
 	}
 	else
 	{
 		all->rc.step_y = 1;
 		all->rc.side_dist_y = (all->rc.map_y + 1.0 - all->map_data.pl_y)
-							  * all->rc.delta_y;
+		* all->rc.delta_y;
 	}
 }
 
@@ -76,7 +75,7 @@ void	hit_calc(t_all_data *all)
 	}
 }
 
-void 	perp_dis_calc(t_all_data *all)
+void	perp_dis_calc(t_all_data *all)
 {
 	if (all->rc.side == 0)
 		all->rc.perp_dist = (all->rc.map_x - all->map_data.pl_x + (1.0 -
@@ -88,14 +87,13 @@ void 	perp_dis_calc(t_all_data *all)
 
 void	wall_calc(t_all_data *all)
 {
-	all->wall.line_height = (int)(all->parse_data.y_res / all->rc
-			.perp_dist);
-	all->wall.draw_start = -all->wall.line_height / 2 + all->parse_data
-																.y_res / 2;
+	all->wall.line_height = (int)(all->parse_data.y_res /
+			all->rc.perp_dist);
+	all->wall.draw_start = -all->wall.line_height /
+			2 + all->parse_data.y_res / 2;
 	if (all->wall.draw_start < 0)
 		all->wall.draw_start = 0;
 	all->wall.draw_end = all->wall.line_height / 2 + all->parse_data.y_res / 2;
 	if (all->wall.draw_end >= all->parse_data.y_res)
 		all->wall.draw_end = all->parse_data.y_res - 1;
 }
-

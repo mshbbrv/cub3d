@@ -44,8 +44,11 @@ set(CMAKE_DEPENDS_CHECK_C
   "/Users/thjonell/CLionProjects/cub3d/libft/ft_substr.c" "/Users/thjonell/CLionProjects/cub3d/cmake-build-debug/CMakeFiles/cub3d.dir/libft/ft_substr.c.o"
   "/Users/thjonell/CLionProjects/cub3d/libft/ft_tolower.c" "/Users/thjonell/CLionProjects/cub3d/cmake-build-debug/CMakeFiles/cub3d.dir/libft/ft_tolower.c.o"
   "/Users/thjonell/CLionProjects/cub3d/libft/ft_toupper.c" "/Users/thjonell/CLionProjects/cub3d/cmake-build-debug/CMakeFiles/cub3d.dir/libft/ft_toupper.c.o"
+  "/Users/thjonell/CLionProjects/cub3d/source/data_parsing.c" "/Users/thjonell/CLionProjects/cub3d/cmake-build-debug/CMakeFiles/cub3d.dir/source/data_parsing.c.o"
+  "/Users/thjonell/CLionProjects/cub3d/source/elem_parse.c" "/Users/thjonell/CLionProjects/cub3d/cmake-build-debug/CMakeFiles/cub3d.dir/source/elem_parse.c.o"
   "/Users/thjonell/CLionProjects/cub3d/source/get_next_line.c" "/Users/thjonell/CLionProjects/cub3d/cmake-build-debug/CMakeFiles/cub3d.dir/source/get_next_line.c.o"
   "/Users/thjonell/CLionProjects/cub3d/source/get_next_line_utils.c" "/Users/thjonell/CLionProjects/cub3d/cmake-build-debug/CMakeFiles/cub3d.dir/source/get_next_line_utils.c.o"
+  "/Users/thjonell/CLionProjects/cub3d/source/init_utils.c" "/Users/thjonell/CLionProjects/cub3d/cmake-build-debug/CMakeFiles/cub3d.dir/source/init_utils.c.o"
   "/Users/thjonell/CLionProjects/cub3d/source/key_on_off.c" "/Users/thjonell/CLionProjects/cub3d/cmake-build-debug/CMakeFiles/cub3d.dir/source/key_on_off.c.o"
   "/Users/thjonell/CLionProjects/cub3d/source/main.c" "/Users/thjonell/CLionProjects/cub3d/cmake-build-debug/CMakeFiles/cub3d.dir/source/main.c.o"
   "/Users/thjonell/CLionProjects/cub3d/source/map_validate.c" "/Users/thjonell/CLionProjects/cub3d/cmake-build-debug/CMakeFiles/cub3d.dir/source/map_validate.c.o"
@@ -60,8 +63,6 @@ set(CMAKE_DEPENDS_CHECK_C
   "/Users/thjonell/CLionProjects/cub3d/source/rotation.c" "/Users/thjonell/CLionProjects/cub3d/cmake-build-debug/CMakeFiles/cub3d.dir/source/rotation.c.o"
   "/Users/thjonell/CLionProjects/cub3d/source/sprite_player_init.c" "/Users/thjonell/CLionProjects/cub3d/cmake-build-debug/CMakeFiles/cub3d.dir/source/sprite_player_init.c.o"
   "/Users/thjonell/CLionProjects/cub3d/source/texture_init.c" "/Users/thjonell/CLionProjects/cub3d/cmake-build-debug/CMakeFiles/cub3d.dir/source/texture_init.c.o"
-  "/Users/thjonell/CLionProjects/cub3d/source/texture_parse.c" "/Users/thjonell/CLionProjects/cub3d/cmake-build-debug/CMakeFiles/cub3d.dir/source/texture_parse.c.o"
-  "/Users/thjonell/CLionProjects/cub3d/source/world_parse.c" "/Users/thjonell/CLionProjects/cub3d/cmake-build-debug/CMakeFiles/cub3d.dir/source/world_parse.c.o"
   )
 set(CMAKE_C_COMPILER_ID "AppleClang")
 
@@ -72,7 +73,6 @@ set(CMAKE_C_TARGET_INCLUDE_PATH
   "../libraries"
   "../includes"
   "../libft"
-  "../cub3d"
   )
 
 # Targets to which this target links.

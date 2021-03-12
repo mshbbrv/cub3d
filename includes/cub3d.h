@@ -6,7 +6,7 @@
 /*   By: thjonell <thjonell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/01 13:48:32 by thjonell          #+#    #+#             */
-/*   Updated: 2021/03/06 20:29:06 by thjonell         ###   ########.fr       */
+/*   Updated: 2021/03/12 13:09:49 by thjonell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,6 @@
 # include "get_next_line.h"
 # include "libft.h"
 # include "mlx.h"
-//# include "mlx_int.h"
-//# include "mlx_new_window.h"
-//# include "mlx_opengl.h"
-//# include "mlx_png.h"
 # define not_validate(x) ((x) != '0' && (x) != '1' && (x) != '2' && (x) != 'N' \
 && (x) != 'S' && (x) != 'E' && (x) != 'W' && (x) != ' ')
 # define not_validate_edge(x) ((x) != '1' && (x) != ' ')
@@ -54,7 +50,7 @@ typedef struct  s_data {
 	int			height;
 }               t_data;
 
-typedef struct		s_world
+typedef struct		s_parse_data
 {
 	int				x_res;
 	int				y_res;
@@ -65,7 +61,7 @@ typedef struct		s_world
 	char			*s;
 	unsigned int	floor_color;
 	unsigned int	ceil_color;
-}				t_world;
+}					t_parse_data;
 
 typedef struct	s_map_stuff
 {
@@ -160,7 +156,7 @@ typedef struct	s_all_data
 	t_vars			vars;
 	t_map_data		map_data;
 	t_data			img_data;
-	t_world			parse_data;
+	t_parse_data 	parse_data;
 	t_ray_cast		rc;
 	t_wall			wall;
 	t_keys_data		keys_data;
@@ -171,16 +167,16 @@ typedef struct	s_all_data
 	t_data			w_texture;
 	t_data			texture;
 	t_data			sprite_texture;
+	int				screenshot;
 }				t_all_data;
 
-void	world_parse(char *argv);
-int		r_parse(char ***line, t_world ***world, int i);
-int		texture_parse(char ***line, char **str, int i);
-int		color_parse(char ***line, unsigned int *color, int i);
+void	data_parsing(char *argv, t_all_data *all);
+int		r_parse(const char *line, t_all_data *all, int i);
+int		texture_parse(char *line, char **str, int i);
+int		color_parse(const char *line, unsigned int *color, int i);
 int		map_validate(char **map, int size);
-void	start_mlx(t_map_data map_data, t_world world);
 void	error_handler(char *error_str);
-void	start_render(t_map_data map_data, t_world world);
+void	start_render(t_all_data *all);
 void	render_walls(t_all_data *all);
 void	w_move(t_all_data *all);
 void	s_move(t_all_data *all);
@@ -199,7 +195,6 @@ int 	key_on(int keycode, t_all_data *all);
 void	my_mlx_init(t_all_data *all);
 void	my_mlx_pixel_put(t_data *data, int x, int y, int color);
 int		close_window(t_all_data *all);
-void	my_clear_window(t_all_data *all);
 void	wall_hit_calc(t_all_data *all);
 void 	current_tex_calc(t_all_data *all);
 unsigned int	tex_color(t_data *texture, int x, int y);
@@ -214,5 +209,5 @@ void	sprite_width_calc(t_all_data *all);
 void	sprite_height_calc(t_all_data *all);
 void	draw_sprite(t_all_data *all);
 void	render_sprite(t_all_data *all);
-unsigned int	tex_color_spr(t_data *texture, int x, int y);
+void	screen_size_init(t_all_data *all);
 #endif

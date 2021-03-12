@@ -6,13 +6,13 @@
 /*   By: thjonell <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/02 21:35:02 by thjonell          #+#    #+#             */
-/*   Updated: 2021/03/07 15:36:56 by thjonell         ###   ########.fr       */
+/*   Updated: 2021/03/12 14:32:34 by thjonell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-int 	movement(t_all_data *all)
+int		movement(t_all_data *all)
 {
 	if (all->keys_data.w)
 		w_move(all);
@@ -29,7 +29,7 @@ int 	movement(t_all_data *all)
 	if (all->keys_data.esc)
 	{
 		mlx_destroy_window(all->vars.mlx, all->vars.win);
-		exit (0);
+		exit(0);
 		//free mem
 	}
 	render_walls(all);
@@ -62,7 +62,7 @@ void	s_move(t_all_data *all)
 void	a_move(t_all_data *all)
 {
 	if (all->map_data.map[(int)(all->map_data.pl_y - all->rc.pl_dir_x *
-	MOVE_SPEED)][(int) all->map_data.pl_x] != '1')
+	MOVE_SPEED)][(int)all->map_data.pl_x] != '1')
 		all->map_data.pl_y -= all->rc.pl_dir_x * MOVE_SPEED;
 	if (all->map_data.map[(int)all->map_data.pl_y][(int)(all->map_data.pl_x +
 	all->rc.pl_dir_y * MOVE_SPEED)] != '1')
@@ -72,7 +72,7 @@ void	a_move(t_all_data *all)
 void	d_move(t_all_data *all)
 {
 	if (all->map_data.map[(int)(all->map_data.pl_y + all->rc.pl_dir_x *
-	MOVE_SPEED)][(int) all->map_data.pl_x] != '1')
+	MOVE_SPEED)][(int)all->map_data.pl_x] != '1')
 		all->map_data.pl_y += all->rc.pl_dir_x * MOVE_SPEED;
 	if (all->map_data.map[(int)all->map_data.pl_y][(int)(all->map_data.pl_x -
 	all->rc.pl_dir_y * MOVE_SPEED)] != '1')
