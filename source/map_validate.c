@@ -6,7 +6,7 @@
 /*   By: thjonell <thjonell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/08 20:36:48 by thjonell          #+#    #+#             */
-/*   Updated: 2020/12/11 16:29:38 by thjonell         ###   ########.fr       */
+/*   Updated: 2021/03/13 20:23:53 by thjonell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	edge_lines_validate(char *line, int *i)
 {
 	while (line[*i])
 	{
-		if (not_validate_edge(line[*i]))
+		if (NOT_VALIDATE_EDGE(line[*i]))
 			return (-1);
 		(*i)++;
 	}
@@ -47,7 +47,7 @@ int	middle_lines_validate(char **map, t_map_stuff **ms)
 			if (symbol_validate(&map, &ms))
 				return (-1);
 		if ((*ms)->i > 0 && (*ms)->i < (int)ft_strlen(map[(*ms)->j]) - 1
-			&& pl_validate(map[(*ms)->j][(*ms)->i]))
+			&& PL_VALIDATE(map[(*ms)->j][(*ms)->i]))
 		{
 			if (symbol_validate(&map, &ms) || (*ms)->player)
 				return (-1);
@@ -71,7 +71,7 @@ int	lines_validate(char **map, t_map_stuff *ms)
 		ms->i = 0;
 		while (map[ms->j][ms->i] == ' ')
 			ms->i++;
-		if (not_validate_edge(map[ms->j][ms->i]))
+		if (NOT_VALIDATE_EDGE(map[ms->j][ms->i]))
 			return (-1);
 		ms->i++;
 		if ((ms->j == 0 || ms->j == ms->map_size)
@@ -84,7 +84,7 @@ int	lines_validate(char **map, t_map_stuff *ms)
 			if (middle_lines_validate(map, &ms) == -1)
 				return (-1);
 		}
-		if (not_validate_edge(map[ms->j][ms->i - 1]))
+		if (NOT_VALIDATE_EDGE(map[ms->j][ms->i - 1]))
 			return (-1);
 		ms->j++;
 	}

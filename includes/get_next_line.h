@@ -6,7 +6,7 @@
 /*   By: thjonell <thjonell@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/12 22:28:48 by thjonell          #+#    #+#             */
-/*   Updated: 2020/12/03 21:05:34 by thjonell         ###   ########.fr       */
+/*   Updated: 2021/03/13 19:26:57 by thjonell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@
 # include <stdlib.h>
 # include <stdio.h>
 # ifndef BUFFER_SIZE
-# define BUFFER_SIZE 1
-#endif
+#  define BUFFER_SIZE 1
+# endif
 
 int		get_next_line(int fd, char **line);
 char	*ft_strchr(const char *s, int c);

@@ -6,7 +6,7 @@
 /*   By: thjonell <thjonell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/03 20:52:31 by thjonell          #+#    #+#             */
-/*   Updated: 2021/03/13 14:54:59 by thjonell         ###   ########.fr       */
+/*   Updated: 2021/03/13 20:01:45 by thjonell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 int		elem_parse(char *line, t_all_data *all)
 {
+	while (*line == ' ')
+		line++;
 	if (*line == 'R')
 		return (r_parse(line, all, 1));
 	else if (*line == 'N' && *(line + 1) == 'O')

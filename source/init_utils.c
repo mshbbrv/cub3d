@@ -51,7 +51,7 @@ void	player_init(t_all_data *all)
 		x = 0;
 		while (all->map_data.map[y][x])
 		{
-			if (pl_validate(all->map_data.map[y][x]))
+			if (PL_VALIDATE(all->map_data.map[y][x]))
 			{
 				all->map_data.pl_x = x + 0.5;
 				all->map_data.pl_y = y + 0.5;

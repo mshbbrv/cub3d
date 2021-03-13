@@ -6,11 +6,19 @@
 /*   By: thjonell <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/13 19:12:37 by thjonell          #+#    #+#             */
-/*   Updated: 2021/03/13 19:12:38 by thjonell         ###   ########.fr       */
+/*   Updated: 2021/03/13 20:23:30 by thjonell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
+
+int		not_validate(char s)
+{
+	if (s != '0' && s != '1' && s != '2' && s != 'N' && s != 'S' && s !=
+	'E' && s != 'W' && s != ' ')
+		return (1);
+	return (0);
+}
 
 void	file_ext_validate(const char *file)
 {
