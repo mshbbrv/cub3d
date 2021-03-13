@@ -6,13 +6,13 @@
 /*   By: thjonell <thjonell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/03 20:52:31 by thjonell          #+#    #+#             */
-/*   Updated: 2021/03/12 17:36:05 by thjonell         ###   ########.fr       */
+/*   Updated: 2021/03/13 14:54:59 by thjonell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-int	elem_parse(char *line, t_all_data *all)
+int		elem_parse(char *line, t_all_data *all)
 {
 	if (*line == 'R')
 		return (r_parse(line, all, 1));
@@ -46,6 +46,7 @@ void	file_reader(char *argv, t_all_data *all, t_list **map_list)
 	{
 		if (elem_parse(line, all) == END_PARSE_ELEM)
 			break ;
+		free(line);
 	}
 	ft_lstadd_back(&*map_list, ft_lstnew(line));
 	while (get_next_line(fd, &line))
@@ -70,7 +71,7 @@ void	map_parse(t_list **map_list, int size, t_all_data *all)
 		free(*map_list);
 		*map_list = tmp;
 	}
-	*(all->map_data.map + ++i) = NULL;
+	*(all->map_data.map + i) = NULL;
 	if (map_validate(all->map_data.map, size) == -1)
 		error_handler("Invalid map");
 }

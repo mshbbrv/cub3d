@@ -56,6 +56,7 @@ void	player_init(t_all_data *all)
 				all->map_data.pl_x = x + 0.5;
 				all->map_data.pl_y = y + 0.5;
 				player_dir_init(all, all->map_data.map[y][x]);
+				all->map_data.map[y][x] = '0';
 			}
 			x++;
 		}

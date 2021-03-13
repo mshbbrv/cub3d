@@ -176,6 +176,12 @@ CMakeFiles/cub3d.dir/source/render.c.o
  ../includes/libft.h
  ../includes/mlx.h
  /Users/thjonell/CLionProjects/cub3d/source/render.c
+CMakeFiles/cub3d.dir/source/render_minimap.c.o
+ ../includes/cub3d.h
+ ../includes/get_next_line.h
+ ../includes/libft.h
+ ../includes/mlx.h
+ /Users/thjonell/CLionProjects/cub3d/source/render_minimap.c
 CMakeFiles/cub3d.dir/source/render_sprite.c.o
  ../includes/cub3d.h
  ../includes/get_next_line.h
@@ -224,3 +230,9 @@ CMakeFiles/cub3d.dir/source/texture_init.c.o
  ../includes/libft.h
  ../includes/mlx.h
  /Users/thjonell/CLionProjects/cub3d/source/texture_init.c
+CMakeFiles/cub3d.dir/source/validate.c.o
+ ../includes/cub3d.h
+ ../includes/get_next_line.h
+ ../includes/libft.h
+ ../includes/mlx.h
+ /Users/thjonell/CLionProjects/cub3d/source/validate.c

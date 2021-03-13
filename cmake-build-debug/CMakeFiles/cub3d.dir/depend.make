@@ -176,6 +176,12 @@ CMakeFiles/cub3d.dir/source/render.c.o: ../includes/libft.h
 CMakeFiles/cub3d.dir/source/render.c.o: ../includes/mlx.h
 CMakeFiles/cub3d.dir/source/render.c.o: ../source/render.c
 
+CMakeFiles/cub3d.dir/source/render_minimap.c.o: ../includes/cub3d.h
+CMakeFiles/cub3d.dir/source/render_minimap.c.o: ../includes/get_next_line.h
+CMakeFiles/cub3d.dir/source/render_minimap.c.o: ../includes/libft.h
+CMakeFiles/cub3d.dir/source/render_minimap.c.o: ../includes/mlx.h
+CMakeFiles/cub3d.dir/source/render_minimap.c.o: ../source/render_minimap.c
+
 CMakeFiles/cub3d.dir/source/render_sprite.c.o: ../includes/cub3d.h
 CMakeFiles/cub3d.dir/source/render_sprite.c.o: ../includes/get_next_line.h
 CMakeFiles/cub3d.dir/source/render_sprite.c.o: ../includes/libft.h
@@ -223,4 +229,10 @@ CMakeFiles/cub3d.dir/source/texture_init.c.o: ../includes/get_next_line.h
 CMakeFiles/cub3d.dir/source/texture_init.c.o: ../includes/libft.h
 CMakeFiles/cub3d.dir/source/texture_init.c.o: ../includes/mlx.h
 CMakeFiles/cub3d.dir/source/texture_init.c.o: ../source/texture_init.c
+
+CMakeFiles/cub3d.dir/source/validate.c.o: ../includes/cub3d.h
+CMakeFiles/cub3d.dir/source/validate.c.o: ../includes/get_next_line.h
+CMakeFiles/cub3d.dir/source/validate.c.o: ../includes/libft.h
+CMakeFiles/cub3d.dir/source/validate.c.o: ../includes/mlx.h
+CMakeFiles/cub3d.dir/source/validate.c.o: ../source/validate.c
 

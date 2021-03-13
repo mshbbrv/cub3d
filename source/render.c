@@ -6,7 +6,7 @@
 /*   By: thjonell <thjonell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/04 15:30:02 by thjonell          #+#    #+#             */
-/*   Updated: 2021/03/12 13:40:18 by thjonell         ###   ########.fr       */
+/*   Updated: 2021/03/13 15:58:22 by thjonell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,6 +86,7 @@ void	start_render(t_all_data *all)
 	texture_init(all);
 	render_walls(all);
 	render_sprite(all);
+	render_minimap(all);
 	mlx_put_image_to_window(all->vars.mlx, all->vars.win, all->img_data.img,
 							0, 0);
 	if (all->screenshot == 1)

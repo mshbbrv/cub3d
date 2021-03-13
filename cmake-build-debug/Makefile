@@ -1520,6 +1520,33 @@ source/render.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/cub3d.dir/build.make CMakeFiles/cub3d.dir/source/render.c.s
 .PHONY : source/render.c.s
 
+source/render_minimap.o: source/render_minimap.c.o
+
+.PHONY : source/render_minimap.o
+
+# target to build an object file
+source/render_minimap.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cub3d.dir/build.make CMakeFiles/cub3d.dir/source/render_minimap.c.o
+.PHONY : source/render_minimap.c.o
+
+source/render_minimap.i: source/render_minimap.c.i
+
+.PHONY : source/render_minimap.i
+
+# target to preprocess a source file
+source/render_minimap.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cub3d.dir/build.make CMakeFiles/cub3d.dir/source/render_minimap.c.i
+.PHONY : source/render_minimap.c.i
+
+source/render_minimap.s: source/render_minimap.c.s
+
+.PHONY : source/render_minimap.s
+
+# target to generate assembly for a file
+source/render_minimap.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cub3d.dir/build.make CMakeFiles/cub3d.dir/source/render_minimap.c.s
+.PHONY : source/render_minimap.c.s
+
 source/render_sprite.o: source/render_sprite.c.o
 
 .PHONY : source/render_sprite.o
@@ -1736,6 +1763,33 @@ source/texture_init.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/cub3d.dir/build.make CMakeFiles/cub3d.dir/source/texture_init.c.s
 .PHONY : source/texture_init.c.s
 
+source/validate.o: source/validate.c.o
+
+.PHONY : source/validate.o
+
+# target to build an object file
+source/validate.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cub3d.dir/build.make CMakeFiles/cub3d.dir/source/validate.c.o
+.PHONY : source/validate.c.o
+
+source/validate.i: source/validate.c.i
+
+.PHONY : source/validate.i
+
+# target to preprocess a source file
+source/validate.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cub3d.dir/build.make CMakeFiles/cub3d.dir/source/validate.c.i
+.PHONY : source/validate.c.i
+
+source/validate.s: source/validate.c.s
+
+.PHONY : source/validate.s
+
+# target to generate assembly for a file
+source/validate.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cub3d.dir/build.make CMakeFiles/cub3d.dir/source/validate.c.s
+.PHONY : source/validate.c.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -1898,6 +1952,9 @@ help:
 	@echo "... source/render.o"
 	@echo "... source/render.i"
 	@echo "... source/render.s"
+	@echo "... source/render_minimap.o"
+	@echo "... source/render_minimap.i"
+	@echo "... source/render_minimap.s"
 	@echo "... source/render_sprite.o"
 	@echo "... source/render_sprite.i"
 	@echo "... source/render_sprite.s"
@@ -1922,6 +1979,9 @@ help:
 	@echo "... source/texture_init.o"
 	@echo "... source/texture_init.i"
 	@echo "... source/texture_init.s"
+	@echo "... source/validate.o"
+	@echo "... source/validate.i"
+	@echo "... source/validate.s"
 .PHONY : help
 
 

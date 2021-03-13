@@ -256,6 +256,9 @@
 		<Unit filename="/Users/thjonell/CLionProjects/cub3d/source/render.c">
 			<Option target="cub3d"/>
 		</Unit>
+		<Unit filename="/Users/thjonell/CLionProjects/cub3d/source/render_minimap.c">
+			<Option target="cub3d"/>
+		</Unit>
 		<Unit filename="/Users/thjonell/CLionProjects/cub3d/source/render_sprite.c">
 			<Option target="cub3d"/>
 		</Unit>
@@ -278,6 +281,9 @@
 			<Option target="cub3d"/>
 		</Unit>
 		<Unit filename="/Users/thjonell/CLionProjects/cub3d/source/texture_init.c">
+			<Option target="cub3d"/>
+		</Unit>
+		<Unit filename="/Users/thjonell/CLionProjects/cub3d/source/validate.c">
 			<Option target="cub3d"/>
 		</Unit>
 		<Unit filename="/Users/thjonell/CLionProjects/cub3d/CMakeLists.txt">

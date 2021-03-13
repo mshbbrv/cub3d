@@ -6,20 +6,21 @@
 #    By: thjonell <thjonell@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/10/29 20:54:40 by thjonell          #+#    #+#              #
-#    Updated: 2021/03/12 18:49:54 by thjonell         ###   ########.fr        #
+#    Updated: 2021/03/13 19:07:00 by thjonell         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		= cub3d
+NAME		= cub3D
 MLX_NAME	= mlx
 CC			= gcc
 RM			= rm -rf
-CFLAGS		= -Wall -Wextra -Werror -g3
+CFLAGS		= -Wall -Wextra -Werror
 SRCS_LIST	= main.c map_validate.c elem_parse.c data_parsing.c \
 			get_next_line.c get_next_line_utils.c render.c render_walls.c \
 			key_on_off.c mlx_utils.c movement.c render_walls_utils.c \
 			render_walls_utils2.c rotation.c render_sprite.c texture_init.c \
-			sprite_player_init.c render_sprite_utils.c init_utils.c
+			sprite_player_init.c render_sprite_utils.c init_utils.c \
+			render_minimap.c validate.c
 
 SRCS		= $(addprefix $(SRCS_DIR)/, $(SRCS_LIST))
 LIB_FT		= -L$(LIB_DIR) -lft
@@ -30,7 +31,6 @@ INC_DIR		= includes
 LIB_DIR		= libraries
 SRCS_DIR	= source
 OBJ_DIR		= objects
-BIN_DIR		= binary
 ENDF		= \033[0m
 BOLD		= \033[1m
 BOLDGREEN	= \033[1;32m
@@ -51,7 +51,7 @@ $(NAME):	hello | $(OBJ)
 #@printf "$(BOLDBLUE).$(ENDF)"
 #@sleep 1
 #@printf "$(BOLDBLUE).\n$(ENDF)"
-			$(CC) $(OBJ) $(LIB_FT) $(LIB_MLX) -o $(BIN_DIR)/$(NAME)
+			$(CC) $(CFLAGS) $(OBJ) $(LIB_FT) $(LIB_MLX) -o $(NAME)
 #@printf "$(BOLDGREEN)the $(NAME) sucсessfully created in \"$(BIN_DIR)\" directory! have fun ;)\n$(ENDF)"
 $(OBJ_DIR)/%.o : $(SRCS_DIR)/%.c | $(OBJ_DIR)
 			$(CC) $(CFLAGS) -I$(INC_DIR) -c $< -o $@
@@ -68,7 +68,7 @@ clean:
 			$(RM) $(OBJ_DIR)
 #@printf "$(BOLDRED)all object files were successfully deleted, boss\n$(ENDF)"
 fclean:		clean
-			$(RM) $(BIN_DIR)
+			$(RM) $(NAME)
 #@sleep 1
 #@printf "$(BOLDRED)and the $(NAME) too\n$(ENDF)"
 #@sleep 1

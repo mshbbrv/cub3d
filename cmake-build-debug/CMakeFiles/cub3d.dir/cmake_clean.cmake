@@ -50,6 +50,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/cub3d.dir/source/mlx_utils.c.o"
   "CMakeFiles/cub3d.dir/source/movement.c.o"
   "CMakeFiles/cub3d.dir/source/render.c.o"
+  "CMakeFiles/cub3d.dir/source/render_minimap.c.o"
   "CMakeFiles/cub3d.dir/source/render_sprite.c.o"
   "CMakeFiles/cub3d.dir/source/render_sprite_utils.c.o"
   "CMakeFiles/cub3d.dir/source/render_walls.c.o"
@@ -58,6 +59,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/cub3d.dir/source/rotation.c.o"
   "CMakeFiles/cub3d.dir/source/sprite_player_init.c.o"
   "CMakeFiles/cub3d.dir/source/texture_init.c.o"
+  "CMakeFiles/cub3d.dir/source/validate.c.o"
   "cub3d"
   "cub3d.pdb"
 )

@@ -55,6 +55,7 @@ set(CMAKE_DEPENDS_CHECK_C
   "/Users/thjonell/CLionProjects/cub3d/source/mlx_utils.c" "/Users/thjonell/CLionProjects/cub3d/cmake-build-debug/CMakeFiles/cub3d.dir/source/mlx_utils.c.o"
   "/Users/thjonell/CLionProjects/cub3d/source/movement.c" "/Users/thjonell/CLionProjects/cub3d/cmake-build-debug/CMakeFiles/cub3d.dir/source/movement.c.o"
   "/Users/thjonell/CLionProjects/cub3d/source/render.c" "/Users/thjonell/CLionProjects/cub3d/cmake-build-debug/CMakeFiles/cub3d.dir/source/render.c.o"
+  "/Users/thjonell/CLionProjects/cub3d/source/render_minimap.c" "/Users/thjonell/CLionProjects/cub3d/cmake-build-debug/CMakeFiles/cub3d.dir/source/render_minimap.c.o"
   "/Users/thjonell/CLionProjects/cub3d/source/render_sprite.c" "/Users/thjonell/CLionProjects/cub3d/cmake-build-debug/CMakeFiles/cub3d.dir/source/render_sprite.c.o"
   "/Users/thjonell/CLionProjects/cub3d/source/render_sprite_utils.c" "/Users/thjonell/CLionProjects/cub3d/cmake-build-debug/CMakeFiles/cub3d.dir/source/render_sprite_utils.c.o"
   "/Users/thjonell/CLionProjects/cub3d/source/render_walls.c" "/Users/thjonell/CLionProjects/cub3d/cmake-build-debug/CMakeFiles/cub3d.dir/source/render_walls.c.o"
@@ -63,6 +64,7 @@ set(CMAKE_DEPENDS_CHECK_C
   "/Users/thjonell/CLionProjects/cub3d/source/rotation.c" "/Users/thjonell/CLionProjects/cub3d/cmake-build-debug/CMakeFiles/cub3d.dir/source/rotation.c.o"
   "/Users/thjonell/CLionProjects/cub3d/source/sprite_player_init.c" "/Users/thjonell/CLionProjects/cub3d/cmake-build-debug/CMakeFiles/cub3d.dir/source/sprite_player_init.c.o"
   "/Users/thjonell/CLionProjects/cub3d/source/texture_init.c" "/Users/thjonell/CLionProjects/cub3d/cmake-build-debug/CMakeFiles/cub3d.dir/source/texture_init.c.o"
+  "/Users/thjonell/CLionProjects/cub3d/source/validate.c" "/Users/thjonell/CLionProjects/cub3d/cmake-build-debug/CMakeFiles/cub3d.dir/source/validate.c.o"
   )
 set(CMAKE_C_COMPILER_ID "AppleClang")
 

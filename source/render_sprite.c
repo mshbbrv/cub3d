@@ -39,7 +39,7 @@ void	sort_sprites(t_all_data *all)
 	i = 0;
 	while (i < all->sprite_data.num_sprites)
 	{
-		j = all->sprite_data.num_sprites;
+		j = all->sprite_data.num_sprites - 1;
 		while (j > i)
 		{
 			if (all->sprite_data.dist[j - 1] < all->sprite_data.dist[j])

@@ -94,6 +94,6 @@ void	wall_calc(t_all_data *all)
 	if (all->wall.draw_start < 0)
 		all->wall.draw_start = 0;
 	all->wall.draw_end = all->wall.line_height / 2 + all->parse_data.y_res / 2;
-	if (all->wall.draw_end >= all->parse_data.y_res)
+	if (all->wall.draw_end >= all->parse_data.y_res || all->wall.draw_end < 0)
 		all->wall.draw_end = all->parse_data.y_res - 1;
 }

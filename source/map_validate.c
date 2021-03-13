@@ -80,7 +80,7 @@ int	lines_validate(char **map, t_map_stuff *ms)
 		if (ms->j > 0 && ms->j < ms->map_size)
 		{
 			ms->nbs = ft_strlen(map[ms->j - 1]) < ft_strlen(map[ms->j + 1])
-					  ? ft_strlen(map[ms->j - 1]) : ft_strlen(map[ms->j + 1]);
+			? ft_strlen(map[ms->j - 1]) : ft_strlen(map[ms->j + 1]);
 			if (middle_lines_validate(map, &ms) == -1)
 				return (-1);
 		}

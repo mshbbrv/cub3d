@@ -74,4 +74,6 @@ add_executable(cub3d
         source/texture_init.c
         source/sprite_player_init.c
         source/render_sprite_utils.c
-        source/init_utils.c)
+        source/init_utils.c
+        source/render_minimap.c
+        source/validate.c)

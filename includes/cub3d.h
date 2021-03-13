@@ -211,4 +211,7 @@ void	draw_sprite(t_all_data *all);
 void	render_sprite(t_all_data *all);
 void	screen_size_init(t_all_data *all);
 void	free_mem(t_all_data *all);
+void 	render_minimap(t_all_data *all);
+void	file_ext_validate(const char *file);
+void	screenshot_validate(char *str, t_all_data *all);
 #endif

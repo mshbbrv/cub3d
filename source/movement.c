@@ -6,7 +6,7 @@
 /*   By: thjonell <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/02 21:35:02 by thjonell          #+#    #+#             */
-/*   Updated: 2021/03/12 14:33:02 by thjonell         ###   ########.fr       */
+/*   Updated: 2021/03/13 16:22:18 by thjonell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ int		movement(t_all_data *all)
 	}
 	render_walls(all);
 	render_sprite(all);
+	render_minimap(all);
 	mlx_put_image_to_window(all->vars.mlx, all->vars.win, all->img_data.img,
 							0, 0);
 	return (0);
@@ -42,39 +43,39 @@ int		movement(t_all_data *all)
 void	w_move(t_all_data *all)
 {
 	if (all->map_data.map[(int)(all->map_data.pl_y + all->rc.pl_dir_y *
-	MOVE_SPEED)][(int)all->map_data.pl_x] != '1')
+	MOVE_SPEED)][(int)all->map_data.pl_x] == '0')
 		all->map_data.pl_y += all->rc.pl_dir_y * MOVE_SPEED;
 	if (all->map_data.map[(int)all->map_data.pl_y][(int)(all->map_data.pl_x +
-	all->rc.pl_dir_x * MOVE_SPEED)] != '1')
+	all->rc.pl_dir_x * MOVE_SPEED)] == '0')
 		all->map_data.pl_x += all->rc.pl_dir_x * MOVE_SPEED;
 }
 
 void	s_move(t_all_data *all)
 {
 	if (all->map_data.map[(int)(all->map_data.pl_y - all->rc.pl_dir_y *
-	MOVE_SPEED)][(int)all->map_data.pl_x] != '1')
+	MOVE_SPEED)][(int)all->map_data.pl_x] == '0')
 		all->map_data.pl_y -= all->rc.pl_dir_y * MOVE_SPEED;
 	if (all->map_data.map[(int)all->map_data.pl_y][(int)(all->map_data.pl_x -
-	all->rc.pl_dir_x * MOVE_SPEED)] != '1')
+	all->rc.pl_dir_x * MOVE_SPEED)] == '0')
 		all->map_data.pl_x -= all->rc.pl_dir_x * MOVE_SPEED;
 }
 
 void	a_move(t_all_data *all)
 {
 	if (all->map_data.map[(int)(all->map_data.pl_y - all->rc.pl_dir_x *
-	MOVE_SPEED)][(int)all->map_data.pl_x] != '1')
+	MOVE_SPEED)][(int)all->map_data.pl_x] == '0')
 		all->map_data.pl_y -= all->rc.pl_dir_x * MOVE_SPEED;
 	if (all->map_data.map[(int)all->map_data.pl_y][(int)(all->map_data.pl_x +
-	all->rc.pl_dir_y * MOVE_SPEED)] != '1')
+	all->rc.pl_dir_y * MOVE_SPEED)] == '0')
 		all->map_data.pl_x += all->rc.pl_dir_y * MOVE_SPEED;
 }
 
 void	d_move(t_all_data *all)
 {
 	if (all->map_data.map[(int)(all->map_data.pl_y + all->rc.pl_dir_x *
-	MOVE_SPEED)][(int)all->map_data.pl_x] != '1')
+	MOVE_SPEED)][(int)all->map_data.pl_x] == '0')
 		all->map_data.pl_y += all->rc.pl_dir_x * MOVE_SPEED;
 	if (all->map_data.map[(int)all->map_data.pl_y][(int)(all->map_data.pl_x -
-	all->rc.pl_dir_y * MOVE_SPEED)] != '1')
+	all->rc.pl_dir_y * MOVE_SPEED)] == '0')
 		all->map_data.pl_x -= all->rc.pl_dir_y * MOVE_SPEED;
 }
