@@ -6,7 +6,7 @@
 #    By: thjonell <thjonell@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/10/29 20:54:40 by thjonell          #+#    #+#              #
-#    Updated: 2021/03/13 19:07:00 by thjonell         ###   ########.fr        #
+#    Updated: 2021/03/13 21:12:57 by thjonell         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,6 @@ SRCS_LIST	= main.c map_validate.c elem_parse.c data_parsing.c \
 			render_walls_utils2.c rotation.c render_sprite.c texture_init.c \
 			sprite_player_init.c render_sprite_utils.c init_utils.c \
 			render_minimap.c validate.c
-
 SRCS		= $(addprefix $(SRCS_DIR)/, $(SRCS_LIST))
 LIB_FT		= -L$(LIB_DIR) -lft
 LIB_MLX		= -L$(LIB_DIR) -lmlx -framework OpenGL -framework Appkit
@@ -42,37 +41,35 @@ BOLDPURPLE	= \033[1;35m
 BOLDTUR		= \033[1;36m
 all:		$(NAME)
 $(NAME):	hello | $(OBJ)
-#@printf "$(BOLDGREEN)object files sucсessfully created or all of them up-to-date\n$(ENDF)"
-#@sleep 1
-#@printf "$(BOLDBLUE)creating $(NAME)"
-#@sleep 1
-#@printf "$(BOLDBLUE).$(ENDF)"
-#@sleep 1
-#@printf "$(BOLDBLUE).$(ENDF)"
-#@sleep 1
-#@printf "$(BOLDBLUE).\n$(ENDF)"
-			$(CC) $(CFLAGS) $(OBJ) $(LIB_FT) $(LIB_MLX) -o $(NAME)
-#@printf "$(BOLDGREEN)the $(NAME) sucсessfully created in \"$(BIN_DIR)\" directory! have fun ;)\n$(ENDF)"
+			@printf "$(BOLDGREEN)object files sucсessfully created or all of them up-to-date\n$(ENDF)"
+			@sleep 1
+			@printf "$(BOLDBLUE)creating $(NAME)"
+			@sleep 1
+			@printf "$(BOLDBLUE).$(ENDF)"
+			@sleep 1
+			@printf "$(BOLDBLUE).$(ENDF)"
+			@sleep 1
+			@printf "$(BOLDBLUE).\n$(ENDF)"
+			@$(CC) $(CFLAGS) $(OBJ) $(LIB_FT) $(LIB_MLX) -o $(NAME)
+			@printf "$(BOLDGREEN)the $(NAME) sucсessfully created! have fun ;)\n$(ENDF)"
 $(OBJ_DIR)/%.o : $(SRCS_DIR)/%.c | $(OBJ_DIR)
-			$(CC) $(CFLAGS) -I$(INC_DIR) -c $< -o $@
+			@$(CC) $(CFLAGS) -I$(INC_DIR) -c $< -o $@
 $(OBJ_DIR):
 			@mkdir -p $@
-$(BIN_DIR):
-			@mkdir -p $@
-hello:		$(BIN_DIR)
-#@printf "$(BOLDTUR)h$(BOLDPURPLE)e$(BOLDBLUE)l$(BOLDYELLOW)l$(BOLDRED)o $(BOLDWHITE)@$(BOLDGREEN)u$(BOLDTUR)s$(BOLDPURPLE)e$(BOLDBLUE)r$(BOLDYELLOW)n$(BOLDRED)a$(BOLDWHITE)m$(BOLDGREEN)e$(BOLDTUR)!\n$(ENDF)"
-#@sleep 1
-#@printf "$(BOLD)creating objects...\n$(ENDF)"
-#@sleep 1
+hello:
+			@printf "$(BOLDTUR)h$(BOLDPURPLE)e$(BOLDBLUE)l$(BOLDYELLOW)l$(BOLDRED)o $(BOLDWHITE)@$(BOLDGREEN)u$(BOLDTUR)s$(BOLDPURPLE)e$(BOLDBLUE)r$(BOLDYELLOW)n$(BOLDRED)a$(BOLDWHITE)m$(BOLDGREEN)e$(BOLDTUR)!\n$(ENDF)"
+			@sleep 1
+			@printf "$(BOLD)creating objects...\n$(ENDF)"
+			@sleep 1
 clean:
-			$(RM) $(OBJ_DIR)
-#@printf "$(BOLDRED)all object files were successfully deleted, boss\n$(ENDF)"
+			@$(RM) $(OBJ_DIR)
+			@printf "$(BOLDRED)all object files were successfully deleted, boss\n$(ENDF)"
 fclean:		clean
-			$(RM) $(NAME)
-#@sleep 1
-#@printf "$(BOLDRED)and the $(NAME) too\n$(ENDF)"
-#@sleep 1
-#@printf "$(BOLDGREEN)cleaning finished!\n$(ENDF)"
-#@sleep 1
+			@$(RM) $(NAME)
+			@sleep 1
+			@printf "$(BOLDRED)and the $(NAME) too\n$(ENDF)"
+			@sleep 1
+			@printf "$(BOLDGREEN)cleaning is finished!\n$(ENDF)"
+			@sleep 1
 re:			fclean all
 .PHONY:		all clean fclean re

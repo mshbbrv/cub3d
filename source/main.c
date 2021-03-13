@@ -6,7 +6,7 @@
 /*   By: thjonell <thjonell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/07 16:11:38 by thjonell          #+#    #+#             */
-/*   Updated: 2021/03/13 19:12:20 by thjonell         ###   ########.fr       */
+/*   Updated: 2021/03/13 19:13:42 by thjonell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ void	free_map(t_all_data *all)
 
 void	free_mem(t_all_data *all)
 {
+	system("killall afplay");
 	if (all->sprite_data.sprite)
 		free(all->sprite_data.sprite);
 	if (all->sprite_data.z_buffer)
