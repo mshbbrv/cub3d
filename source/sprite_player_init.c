@@ -81,5 +81,4 @@ void	sprite_player_init(t_all_data *all)
 {
 	player_init(all);
 	sprite_init(all);
-	screen_size_init(all);
 }

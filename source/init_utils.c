@@ -6,7 +6,7 @@
 /*   By: thjonell <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/11 11:18:50 by thjonell          #+#    #+#             */
-/*   Updated: 2021/03/11 18:01:55 by thjonell         ###   ########.fr       */
+/*   Updated: 2021/03/14 11:22:34 by thjonell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,8 +71,9 @@ void	screen_size_init(t_all_data *all)
 
 	height = 1600;
 	width = 2560;
-	if (all->parse_data.x_res > width)
-		all->parse_data.x_res = width;
-	if (all->parse_data.y_res > height)
+	if (all->parse_data.x_res > width || all->parse_data.y_res > height)
+	{
 		all->parse_data.y_res = height;
+		all->parse_data.x_res = width;
+	}
 }

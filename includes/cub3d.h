@@ -6,7 +6,7 @@
 /*   By: thjonell <thjonell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/01 13:48:32 by thjonell          #+#    #+#             */
-/*   Updated: 2021/03/13 20:23:30 by thjonell         ###   ########.fr       */
+/*   Updated: 2021/03/14 15:43:05 by thjonell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -214,4 +214,10 @@ void				render_minimap(t_all_data *all);
 void				file_ext_validate(const char *file);
 void				screenshot_validate(char *str, t_all_data *all);
 int					not_validate(char s);
+void				double_res_check(char *line, t_all_data *all);
+void				double_tex_check(char *str);
+void				double_color_check(char *line, unsigned int *color);
+void				empty_line_check(char *line);
+void				invalid_color_check(int tmp, char *line, int i, int j);
+void				digit_check(char *line, int i);
 #endif

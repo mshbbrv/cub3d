@@ -6,7 +6,7 @@
 /*   By: thjonell <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/12 14:27:36 by thjonell          #+#    #+#             */
-/*   Updated: 2021/03/12 14:29:40 by thjonell         ###   ########.fr       */
+/*   Updated: 2021/03/14 15:09:09 by thjonell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 void	sprite_height_calc(t_all_data *all)
 {
 	all->sprite_data.height = abs((int)(all->parse_data.y_res /
-										all->sprite_data.trans_y));
+			all->sprite_data.trans_y));
 	all->sprite_data.draw_start_y = -all->sprite_data.height / 2 +
-									all->parse_data.y_res / 2;
+			all->parse_data.y_res / 2;
 	if (all->sprite_data.draw_start_y < 0)
 		all->sprite_data.draw_start_y = 0;
 	all->sprite_data.draw_end_y = all->sprite_data.height / 2 +
