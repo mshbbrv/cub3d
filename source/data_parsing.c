@@ -6,7 +6,7 @@
 /*   By: thjonell <thjonell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/03 20:52:31 by thjonell          #+#    #+#             */
-/*   Updated: 2021/03/14 15:32:35 by thjonell         ###   ########.fr       */
+/*   Updated: 2021/03/16 23:09:03 by thjonell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,19 +19,19 @@ int		elem_parse(char *line, t_all_data *all)
 	if (*line == 'R')
 		return (r_parse(line, all, 1));
 	else if (*line == 'N' && *(line + 1) == 'O')
-		return (texture_parse(line, &all->parse_data.no, 2));
+		return (texture_parse(line, &all->parse_data.no, 2, all));
 	else if (*line == 'S' && *(line + 1) == 'O')
-		return (texture_parse(line, &all->parse_data.so, 2));
+		return (texture_parse(line, &all->parse_data.so, 2, all));
 	else if (*line == 'W' && *(line + 1) == 'E')
-		return (texture_parse(line, &all->parse_data.we, 2));
+		return (texture_parse(line, &all->parse_data.we, 2, all));
 	else if (*line == 'E' && *(line + 1) == 'A')
-		return (texture_parse(line, &all->parse_data.ea, 2));
+		return (texture_parse(line, &all->parse_data.ea, 2, all));
 	else if (*line == 'S')
-		return (texture_parse(line, &all->parse_data.s, 1));
+		return (texture_parse(line, &all->parse_data.s, 1, all));
 	else if (*line == 'F')
-		return (color_parse(line, &all->parse_data.floor_color, 1));
+		return (color_parse(line, &all->parse_data.floor_color, 1, all));
 	else if (*line == 'C')
-		return (color_parse(line, &all->parse_data.ceil_color, 1));
+		return (color_parse(line, &all->parse_data.ceil_color, 1, all));
 	else if (*line == '\0')
 		return (PARSE_SUCCESS);
 	else if (*line == '1' || *line == '2' || PL_VALIDATE(*line)
@@ -56,9 +56,10 @@ void	file_reader(char *argv, t_all_data *all, t_list **map_list)
 		line = NULL;
 	}
 	ft_lstadd_back(&*map_list, ft_lstnew(line));
-	while (get_next_line(fd, &line))
+	while (get_next_line(fd, &line) && *line != '\0')
 		ft_lstadd_back(&*map_list, ft_lstnew(line));
-	ft_lstadd_back(&*map_list, ft_lstnew(line));
+	if (*line != '\0')
+		ft_lstadd_back(&*map_list, ft_lstnew(line));
 	close(fd);
 }
 
@@ -79,6 +80,12 @@ void	map_parse(t_list **map_list, int size, t_all_data *all)
 		*map_list = tmp;
 	}
 	*(all->map_data.map + i) = NULL;
+	i = 0;
+	while (all->map_data.map[i])
+	{
+		printf("%s\n", all->map_data.map[i]);
+		i++;
+	}
 	if (map_validate(all->map_data.map, size) == -1)
 		error_handler("Invalid map");
 }
@@ -94,6 +101,14 @@ void	zeroing(t_all_data *all)
 	all->parse_data.we = NULL;
 	all->parse_data.x_res = 0;
 	all->parse_data.y_res = 0;
+	all->parse_data.c_color_flag = 0;
+	all->parse_data.f_color_flag = 0;
+	all->parse_data.res_flag = 0;
+	all->parse_data.we_flag = 0;
+	all->parse_data.no_flag = 0;
+	all->parse_data.so_flag = 0;
+	all->parse_data.ea_flag = 0;
+	all->parse_data.s_flag = 0;
 }
 
 void	data_parsing(char *argv, t_all_data *all)
@@ -105,5 +120,6 @@ void	data_parsing(char *argv, t_all_data *all)
 	all->parse_data.x_res = 0;
 	all->parse_data.y_res = 0;
 	file_reader(argv, all, &map_list);
+	elem_check(all);
 	map_parse(&map_list, ft_lstsize(map_list), all);
 }

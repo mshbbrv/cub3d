@@ -31,7 +31,6 @@ void	free_map(t_all_data *all)
 
 void	free_mem(t_all_data *all)
 {
-	system("killall afplay");
 	if (all->sprite_data.sprite)
 		free(all->sprite_data.sprite);
 	if (all->sprite_data.z_buffer)

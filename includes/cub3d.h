@@ -6,7 +6,7 @@
 /*   By: thjonell <thjonell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/01 13:48:32 by thjonell          #+#    #+#             */
-/*   Updated: 2021/03/14 15:43:05 by thjonell         ###   ########.fr       */
+/*   Updated: 2021/03/16 22:57:34 by thjonell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,14 @@
 # include <stdio.h>
 # include <math.h>
 # include "get_next_line.h"
-# include "libft.h"
-# include "mlx.h"
+# include "../libft/libft.h"
+# include "../mlx/mlx.h"
 
 # define NOT_VALIDATE_EDGE(x) ((x) != '1' && (x) != ' ')
 # define PL_VALIDATE(x) ((x) == 'N' || (x) == 'S' || (x) == 'E' || (x) == 'W')
 # define END_PARSE_ELEM 1
 # define PARSE_SUCCESS 0
-# define MOVE_SPEED 0.1
+# define MOVE_SPEED 0.2
 # define ROT 0.05
 
 typedef struct		s_map_data
@@ -61,6 +61,14 @@ typedef struct		s_parse_data
 	char			*s;
 	unsigned int	floor_color;
 	unsigned int	ceil_color;
+	int				res_flag;
+	int 			f_color_flag;
+	int 			c_color_flag;
+	int 			no_flag;
+	int 			so_flag;
+	int 			we_flag;
+	int				ea_flag;
+	int 			s_flag;
 }					t_parse_data;
 
 typedef struct		s_map_stuff
@@ -171,8 +179,9 @@ typedef struct		s_all_data
 
 void				data_parsing(char *argv, t_all_data *all);
 int					r_parse(char *line, t_all_data *all, int i);
-int					texture_parse(char *line, char **str, int i);
-int					color_parse(char *line, unsigned int *color, int i);
+int					texture_parse(char *line, char **str, int i, t_all_data *all);
+int					color_parse(char *line, unsigned int *color, int i,
+					t_all_data *all);
 int					map_validate(char **map, int size);
 void				error_handler(char *error_str);
 void				start_render(t_all_data *all);
@@ -215,9 +224,10 @@ void				file_ext_validate(const char *file);
 void				screenshot_validate(char *str, t_all_data *all);
 int					not_validate(char s);
 void				double_res_check(char *line, t_all_data *all);
-void				double_tex_check(char *str);
-void				double_color_check(char *line, unsigned int *color);
+void				double_tex_check(char *line, t_all_data *all);
+void				double_color_check(char *line, t_all_data *all);
 void				empty_line_check(char *line);
 void				invalid_color_check(int tmp, char *line, int i, int j);
 void				digit_check(char *line, int i);
+void				elem_check(t_all_data *all);
 #endif

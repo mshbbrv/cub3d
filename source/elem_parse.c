@@ -6,7 +6,7 @@
 /*   By: thjonell <thjonell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/07 21:23:38 by thjonell          #+#    #+#             */
-/*   Updated: 2021/03/14 12:54:59 by thjonell         ###   ########.fr       */
+/*   Updated: 2021/03/16 23:03:15 by thjonell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,12 @@ void	space_check(char *line, int i, char *str)
 	}
 }
 
-int		color_parse(char *line, unsigned int *color, int i)
+int		color_parse(char *line, unsigned int *color, int i, t_all_data *all)
 {
 	int j;
 	int	tmp[3];
 
-	double_color_check(line, color);
+	double_color_check(line, all);
 	space_check(line, i, "Invalid color set");
 	while (*(line + i) == ' ')
 		i++;
@@ -37,7 +37,10 @@ int		color_parse(char *line, unsigned int *color, int i)
 		digit_check(line, i);
 		while (ft_isdigit(*(line + i)))
 		{
-			tmp[j] = tmp[j] * 10 + (*(line + i) - 48);
+			if (tmp[j] <= 255)
+				tmp[j] = tmp[j] * 10 + (*(line + i) - 48);
+			else
+				break;
 			i++;
 		}
 		invalid_color_check(tmp[j], line, i, j);
@@ -49,11 +52,11 @@ int		color_parse(char *line, unsigned int *color, int i)
 	return (PARSE_SUCCESS);
 }
 
-int		texture_parse(char *line, char **str, int i)
+int		texture_parse(char *line, char **str, int i, t_all_data *all)
 {
 	int fd;
 
-	double_tex_check(*str);
+	double_tex_check(line, all);
 	space_check(line, i, "Invalid texture set");
 	while (*(line + i) == ' ')
 		i++;
@@ -71,14 +74,28 @@ void	r_parse_2(char *line, int i, t_all_data *all)
 {
 	while (ft_isdigit(*(line + i)))
 	{
-		all->parse_data.x_res = all->parse_data.x_res * 10 + (*(line + i) - 48);
+		if (all->parse_data.x_res < 214748364)
+			all->parse_data.x_res = all->parse_data.x_res * 10 + (*(line + i) - 48);
+		else
+		{
+			while (ft_isdigit(*(line + i)))
+				i++;
+			break;
+		}
 		i++;
 	}
 	if (*(line + i) == ' ')
 		i++;
 	while (ft_isdigit((*(line + i))))
 	{
-		all->parse_data.y_res = all->parse_data.y_res * 10 + (*(line + i) - 48);
+		if (all->parse_data.y_res < 214748364)
+			all->parse_data.y_res = all->parse_data.y_res * 10 + (*(line + i) - 48);
+		else
+		{
+			while (ft_isdigit(*(line + i)))
+				i++;
+			break;
+		}
 		i++;
 	}
 	if ((!ft_isdigit(*(line + i)) && *(line + i) != '\0') ||

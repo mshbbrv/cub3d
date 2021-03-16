@@ -83,11 +83,9 @@ void	start_render(t_all_data *all)
 	all->keys_data.right = 0;
 	sprite_player_init(all);
 	my_mlx_init(all);
-	system("afplay textures/music.mp3 &");
 	texture_init(all);
 	render_walls(all);
 	render_sprite(all);
-	render_minimap(all);
 	mlx_put_image_to_window(all->vars.mlx, all->vars.win, all->img_data.img,
 							0, 0);
 	if (all->screenshot == 1)

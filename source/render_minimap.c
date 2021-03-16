@@ -6,7 +6,7 @@
 /*   By: thjonell <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/13 15:56:55 by thjonell          #+#    #+#             */
-/*   Updated: 2021/03/13 19:15:01 by thjonell         ###   ########.fr       */
+/*   Updated: 2021/03/16 18:41:47 by thjonell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,16 @@ void	put_big_pixel(t_all_data *all, double i, double j, unsigned int color)
 	double	x;
 	double	y;
 	double	size;
+	int		res;
 
 	size = 10;
+	if (all->parse_data.x_res < 1000 || all->parse_data.y_res < 1000)
+	{
+		res = all->parse_data.y_res;
+		all->parse_data.x_res < all->parse_data.y_res ? res = all->parse_data
+				.x_res : 0;
+		size = (int)(res / 100);
+	}
 	y = 0;
 	while (y < size)
 	{

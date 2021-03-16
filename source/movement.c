@@ -34,7 +34,6 @@ int		movement(t_all_data *all)
 	}
 	render_walls(all);
 	render_sprite(all);
-	render_minimap(all);
 	mlx_put_image_to_window(all->vars.mlx, all->vars.win, all->img_data.img,
 							0, 0);
 	return (0);
