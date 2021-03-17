@@ -43,39 +43,39 @@ int		movement(t_all_data *all)
 void	w_move(t_all_data *all)
 {
 	if (all->map_data.map[(int)(all->map_data.pl_y + all->rc.pl_dir_y *
-													 MOVE_SPEED)][(int)all->map_data.pl_x] == '0')
+	MOVE_SPEED)][(int)all->map_data.pl_x] == '0')
 		all->map_data.pl_y += all->rc.pl_dir_y * MOVE_SPEED;
 	if (all->map_data.map[(int)all->map_data.pl_y][(int)(all->map_data.pl_x +
-														 all->rc.pl_dir_x * MOVE_SPEED)] == '0')
+	all->rc.pl_dir_x * MOVE_SPEED)] == '0')
 		all->map_data.pl_x += all->rc.pl_dir_x * MOVE_SPEED;
 }
 
 void	s_move(t_all_data *all)
 {
 	if (all->map_data.map[(int)(all->map_data.pl_y - all->rc.pl_dir_y *
-													 MOVE_SPEED)][(int)all->map_data.pl_x] == '0')
+	MOVE_SPEED)][(int)all->map_data.pl_x] == '0')
 		all->map_data.pl_y -= all->rc.pl_dir_y * MOVE_SPEED;
 	if (all->map_data.map[(int)all->map_data.pl_y][(int)(all->map_data.pl_x -
-														 all->rc.pl_dir_x * MOVE_SPEED)] == '0')
+	all->rc.pl_dir_x * MOVE_SPEED)] == '0')
 		all->map_data.pl_x -= all->rc.pl_dir_x * MOVE_SPEED;
 }
 
 void	a_move(t_all_data *all)
 {
 	if (all->map_data.map[(int)(all->map_data.pl_y - all->rc.pl_dir_x *
-													 MOVE_SPEED)][(int)all->map_data.pl_x] == '0')
+	MOVE_SPEED)][(int)all->map_data.pl_x] == '0')
 		all->map_data.pl_y -= all->rc.pl_dir_x * MOVE_SPEED;
 	if (all->map_data.map[(int)all->map_data.pl_y][(int)(all->map_data.pl_x +
-														 all->rc.pl_dir_y * MOVE_SPEED)] == '0')
+	all->rc.pl_dir_y * MOVE_SPEED)] == '0')
 		all->map_data.pl_x += all->rc.pl_dir_y * MOVE_SPEED;
 }
 
 void	d_move(t_all_data *all)
 {
 	if (all->map_data.map[(int)(all->map_data.pl_y + all->rc.pl_dir_x *
-													 MOVE_SPEED)][(int)all->map_data.pl_x] == '0')
+	MOVE_SPEED)][(int)all->map_data.pl_x] == '0')
 		all->map_data.pl_y += all->rc.pl_dir_x * MOVE_SPEED;
 	if (all->map_data.map[(int)all->map_data.pl_y][(int)(all->map_data.pl_x -
-														 all->rc.pl_dir_y * MOVE_SPEED)] == '0')
+	all->rc.pl_dir_y * MOVE_SPEED)] == '0')
 		all->map_data.pl_x -= all->rc.pl_dir_y * MOVE_SPEED;
 }

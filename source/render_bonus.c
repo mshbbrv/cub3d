@@ -55,7 +55,7 @@ void	screenshot(t_all_data *all)
 	int length;
 
 	if ((fd = open("screenshot.bmp", O_CREAT | O_WRONLY |
-									 O_TRUNC, S_IRWXU)) == -1)
+	O_TRUNC, S_IRWXU)) == -1)
 		error_handler("Screenshot error");
 	file_header(all, fd);
 	info_header(all, fd);
@@ -64,7 +64,7 @@ void	screenshot(t_all_data *all)
 	while (height >= 0)
 	{
 		write(fd, (unsigned char *)(all->img_data.addr + height *
-														 all->img_data.line_length), length);
+		all->img_data.line_length), length);
 		height--;
 	}
 	close(fd);

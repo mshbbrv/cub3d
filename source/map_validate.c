@@ -6,7 +6,7 @@
 /*   By: thjonell <thjonell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/08 20:36:48 by thjonell          #+#    #+#             */
-/*   Updated: 2021/03/13 20:23:53 by thjonell         ###   ########.fr       */
+/*   Updated: 2021/03/17 21:35:41 by thjonell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,20 +71,18 @@ int	lines_validate(char **map, t_map_stuff *ms)
 		ms->i = 0;
 		while (map[ms->j][ms->i] == ' ')
 			ms->i++;
-		if (NOT_VALIDATE_EDGE(map[ms->j][ms->i]))
+		if ((map[ms->j][ms->i] == '\0' && ms->i == 0) || (ms->i > 0 &&
+		NOT_VALIDATE_EDGE(map[ms->j][ms->i]) && map[ms->j][ms->i] != '\0'))
 			return (-1);
-		ms->i++;
+		if (map[ms->j][ms->i])
+			ms->i++;
 		if ((ms->j == 0 || ms->j == ms->map_size)
 			&& edge_lines_validate(map[ms->j], &ms->i) == -1)
 			return (-1);
-		if (ms->j > 0 && ms->j < ms->map_size)
-		{
-			ms->nbs = ft_strlen(map[ms->j - 1]) < ft_strlen(map[ms->j + 1])
-			? ft_strlen(map[ms->j - 1]) : ft_strlen(map[ms->j + 1]);
-			if (middle_lines_validate(map, &ms) == -1)
-				return (-1);
-		}
-		if (NOT_VALIDATE_EDGE(map[ms->j][ms->i - 1]))
+		if (check_middle_lines(map, ms) == -1)
+			return (-1);
+		if (NOT_VALIDATE_EDGE(map[ms->j][ms->i - 1])
+		&& map[ms->j][ms->i - 1] != '\0')
 			return (-1);
 		ms->j++;
 	}

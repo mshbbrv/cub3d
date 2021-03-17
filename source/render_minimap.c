@@ -23,8 +23,8 @@ void	put_big_pixel(t_all_data *all, double i, double j, unsigned int color)
 	if (all->parse_data.x_res < 1000 || all->parse_data.y_res < 1000)
 	{
 		res = all->parse_data.y_res;
-		all->parse_data.x_res < all->parse_data.y_res ? res = all->parse_data
-				.x_res : 0;
+		all->parse_data.x_res < all->parse_data.y_res ? res =
+				all->parse_data.x_res : 0;
 		size = (int)(res / 100);
 	}
 	y = 0;

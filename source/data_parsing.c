@@ -6,7 +6,7 @@
 /*   By: thjonell <thjonell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/03 20:52:31 by thjonell          #+#    #+#             */
-/*   Updated: 2021/03/16 23:09:03 by thjonell         ###   ########.fr       */
+/*   Updated: 2021/03/17 19:31:07 by thjonell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int		elem_parse(char *line, t_all_data *all)
 {
-	while (*line == ' ')
+	while (*line == ' ' || *line == '\t')
 		line++;
 	if (*line == 'R')
 		return (r_parse(line, all, 1));
@@ -44,22 +44,24 @@ void	file_reader(char *argv, t_all_data *all, t_list **map_list)
 {
 	int		fd;
 	char	*line;
+	int		i;
 
 	if ((fd = open(argv, O_RDONLY)) < 0)
 		error_handler("Сan not open .cub file");
+	i = 0;
 	while (get_next_line(fd, &line))
 	{
-		empty_line_check(line);
+		empty_line_check(line, i);
 		if (elem_parse(line, all) == END_PARSE_ELEM)
 			break ;
 		free(line);
 		line = NULL;
+		i++;
 	}
 	ft_lstadd_back(&*map_list, ft_lstnew(line));
-	while (get_next_line(fd, &line) && *line != '\0')
+	while (get_next_line(fd, &line))
 		ft_lstadd_back(&*map_list, ft_lstnew(line));
-	if (*line != '\0')
-		ft_lstadd_back(&*map_list, ft_lstnew(line));
+	ft_lstadd_back(&*map_list, ft_lstnew(line));
 	close(fd);
 }
 
@@ -80,12 +82,6 @@ void	map_parse(t_list **map_list, int size, t_all_data *all)
 		*map_list = tmp;
 	}
 	*(all->map_data.map + i) = NULL;
-	i = 0;
-	while (all->map_data.map[i])
-	{
-		printf("%s\n", all->map_data.map[i]);
-		i++;
-	}
 	if (map_validate(all->map_data.map, size) == -1)
 		error_handler("Invalid map");
 }

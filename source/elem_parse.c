@@ -6,18 +6,21 @@
 /*   By: thjonell <thjonell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/07 21:23:38 by thjonell          #+#    #+#             */
-/*   Updated: 2021/03/16 23:03:15 by thjonell         ###   ########.fr       */
+/*   Updated: 2021/03/17 21:26:15 by thjonell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-void	space_check(char *line, int i, char *str)
+void	read_color(int *tmp, char *line, int *i)
 {
-	if (*(line + i) != ' ')
+	while (ft_isdigit(*(line + *i)))
 	{
-		free(line);
-		error_handler(str);
+		if (*tmp <= 255)
+			*tmp = *tmp * 10 + (*(line + *i) - 48);
+		else
+			break ;
+		(*i)++;
 	}
 }
 
@@ -35,14 +38,7 @@ int		color_parse(char *line, unsigned int *color, int i, t_all_data *all)
 	{
 		tmp[j] = 0;
 		digit_check(line, i);
-		while (ft_isdigit(*(line + i)))
-		{
-			if (tmp[j] <= 255)
-				tmp[j] = tmp[j] * 10 + (*(line + i) - 48);
-			else
-				break;
-			i++;
-		}
+		read_color(&tmp[j], line, &i);
 		invalid_color_check(tmp[j], line, i, j);
 		if (*(line + i) == ',')
 			i++;
@@ -75,12 +71,11 @@ void	r_parse_2(char *line, int i, t_all_data *all)
 	while (ft_isdigit(*(line + i)))
 	{
 		if (all->parse_data.x_res < 214748364)
-			all->parse_data.x_res = all->parse_data.x_res * 10 + (*(line + i) - 48);
+			all->parse_data.x_res = all->parse_data.x_res * 10 + (line[i] - 48);
 		else
 		{
-			while (ft_isdigit(*(line + i)))
-				i++;
-			break;
+			wind_digits(line, &i);
+			break ;
 		}
 		i++;
 	}
@@ -89,21 +84,15 @@ void	r_parse_2(char *line, int i, t_all_data *all)
 	while (ft_isdigit((*(line + i))))
 	{
 		if (all->parse_data.y_res < 214748364)
-			all->parse_data.y_res = all->parse_data.y_res * 10 + (*(line + i) - 48);
+			all->parse_data.y_res = all->parse_data.y_res * 10 + (line[i] - 48);
 		else
 		{
-			while (ft_isdigit(*(line + i)))
-				i++;
-			break;
+			wind_digits(line, &i);
+			break ;
 		}
 		i++;
 	}
-	if ((!ft_isdigit(*(line + i)) && *(line + i) != '\0') ||
-		all->parse_data.x_res <= 0 || all->parse_data.y_res <= 0)
-	{
-		free(line);
-		error_handler("Invalid screen resolution");
-	}
+	res_error_check(line, i, all);
 }
 
 int		r_parse(char *line, t_all_data *all, int i)

@@ -6,7 +6,7 @@
 /*   By: thjonell <thjonell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/01 13:48:32 by thjonell          #+#    #+#             */
-/*   Updated: 2021/03/16 22:57:34 by thjonell         ###   ########.fr       */
+/*   Updated: 2021/03/17 21:46:36 by thjonell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,13 +62,13 @@ typedef struct		s_parse_data
 	unsigned int	floor_color;
 	unsigned int	ceil_color;
 	int				res_flag;
-	int 			f_color_flag;
-	int 			c_color_flag;
-	int 			no_flag;
-	int 			so_flag;
-	int 			we_flag;
+	int				f_color_flag;
+	int				c_color_flag;
+	int				no_flag;
+	int				so_flag;
+	int				we_flag;
 	int				ea_flag;
-	int 			s_flag;
+	int				s_flag;
 }					t_parse_data;
 
 typedef struct		s_map_stuff
@@ -179,7 +179,8 @@ typedef struct		s_all_data
 
 void				data_parsing(char *argv, t_all_data *all);
 int					r_parse(char *line, t_all_data *all, int i);
-int					texture_parse(char *line, char **str, int i, t_all_data *all);
+int					texture_parse(char *line, char **str, int i,
+					t_all_data *all);
 int					color_parse(char *line, unsigned int *color, int i,
 					t_all_data *all);
 int					map_validate(char **map, int size);
@@ -226,8 +227,13 @@ int					not_validate(char s);
 void				double_res_check(char *line, t_all_data *all);
 void				double_tex_check(char *line, t_all_data *all);
 void				double_color_check(char *line, t_all_data *all);
-void				empty_line_check(char *line);
+void				empty_line_check(char *line, int j);
 void				invalid_color_check(int tmp, char *line, int i, int j);
 void				digit_check(char *line, int i);
 void				elem_check(t_all_data *all);
+void				res_error_check(char *line, int i, t_all_data *all);
+void				space_check(char *line, int i, char *str);
+void				wind_digits(char *line, int *i);
+int					check_middle_lines(char **map, t_map_stuff *ms);
+int					middle_lines_validate(char **map, t_map_stuff **ms);
 #endif

@@ -74,5 +74,4 @@ void	screen_size_init(t_all_data *all)
 		all->parse_data.x_res = width;
 	if (all->parse_data.y_res > height)
 		all->parse_data.y_res = height;
-
 }

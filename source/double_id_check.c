@@ -6,7 +6,7 @@
 /*   By: thjonell <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/14 11:39:02 by thjonell          #+#    #+#             */
-/*   Updated: 2021/03/16 21:44:08 by thjonell         ###   ########.fr       */
+/*   Updated: 2021/03/17 19:53:43 by thjonell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ void	double_res_check(char *line, t_all_data *all)
 	}
 }
 
-void 	elem_check(t_all_data *all)
+void	elem_check(t_all_data *all)
 {
 	if (all->parse_data.res_flag == 0)
 		error_handler("Screen resolution not set");
