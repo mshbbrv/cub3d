@@ -53,16 +53,6 @@ void	digit_check(char *line, int i)
 	}
 }
 
-void	res_error_check(char *line, int i, t_all_data *all)
-{
-	if ((!ft_isdigit(*(line + i)) && *(line + i) != '\0') ||
-		all->parse_data.x_res <= 0 || all->parse_data.y_res <= 0)
-	{
-		free(line);
-		error_handler("Invalid screen resolution");
-	}
-}
-
 void	space_check(char *line, int i, char *str)
 {
 	if (*(line + i) != ' ')

@@ -6,7 +6,7 @@
 #    By: thjonell <thjonell@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/10/29 20:54:40 by thjonell          #+#    #+#              #
-#    Updated: 2021/03/17 21:41:18 by thjonell         ###   ########.fr        #
+#    Updated: 2021/03/17 21:59:38 by thjonell         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -55,6 +55,7 @@ clean:
 			cd libft && make clean
 			cd mlx && make clean
 			$(RM) $(OBJ_DIR)
+			$(RM) libmlx.dylib
 fclean:		clean
 			cd libft && make fclean
 			cd mlx && make clean
