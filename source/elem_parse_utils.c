@@ -32,9 +32,9 @@ void	empty_line_check(char *line, int j)
 		error_handler("Invalid first line");
 	}
 	i = 0;
-	if (*(line + i) == ' ')
+	if (*(line + i) == ' ' || *(line + i) == '\t')
 	{
-		while (*(line + i) == ' ')
+		while (*(line + i) == ' ' || *(line + i) == '\t')
 			i++;
 		if (*(line + i) == '\0')
 		{

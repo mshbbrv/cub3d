@@ -6,7 +6,7 @@
 /*   By: thjonell <thjonell@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/08 20:36:48 by thjonell          #+#    #+#             */
-/*   Updated: 2021/03/17 21:35:41 by thjonell         ###   ########.fr       */
+/*   Updated: 2021/03/17 23:18:14 by thjonell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,8 +71,8 @@ int	lines_validate(char **map, t_map_stuff *ms)
 		ms->i = 0;
 		while (map[ms->j][ms->i] == ' ')
 			ms->i++;
-		if ((map[ms->j][ms->i] == '\0' && ms->i == 0) || (ms->i > 0 &&
-		NOT_VALIDATE_EDGE(map[ms->j][ms->i]) && map[ms->j][ms->i] != '\0'))
+		if ((map[ms->j][ms->i] != '1' && map[ms->j][ms->i] !=
+		'\0') || (ms->i == 0 && map[ms->j][ms->i] == '\0'))
 			return (-1);
 		if (map[ms->j][ms->i])
 			ms->i++;
