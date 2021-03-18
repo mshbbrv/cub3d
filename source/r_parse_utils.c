@@ -6,7 +6,7 @@
 /*   By: thjonell <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/17 20:37:31 by thjonell          #+#    #+#             */
-/*   Updated: 2021/03/17 22:12:44 by thjonell         ###   ########.fr       */
+/*   Updated: 2021/03/18 15:11:25 by thjonell         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,4 +26,16 @@ void	res_error_check(char *line, int i, t_all_data *all)
 		free(line);
 		error_handler("Invalid screen resolution");
 	}
+}
+
+int		check_text_ext(const char *str)
+{
+	int i;
+
+	i = 0;
+	while (str[i] != '.')
+		i++;
+	if (str[i] != 'x' && str[i + 1] != 'p' && str[i] != 'm')
+		return (-1);
+	return (0);
 }

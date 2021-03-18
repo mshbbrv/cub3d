@@ -236,4 +236,5 @@ void				space_check(char *line, int i, char *str);
 void				wind_digits(char *line, int *i);
 int					check_middle_lines(char **map, t_map_stuff *ms);
 int					middle_lines_validate(char **map, t_map_stuff **ms);
+int					check_text_ext(const char *str);
 #endif

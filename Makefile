@@ -6,7 +6,7 @@
 #    By: thjonell <thjonell@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/10/29 20:54:40 by thjonell          #+#    #+#              #
-#    Updated: 2021/03/17 21:59:38 by thjonell         ###   ########.fr        #
+#    Updated: 2021/03/18 15:24:00 by thjonell         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME		= cub3D
 MLX_NAME	= mlx
 CC			= gcc
 RM			= rm -rf
-CFLAGS		= -Wall -Wextra -Werror -g3
+CFLAGS		= -Wall -Wextra -Werror
 SRCS_LIST	= main.c map_validate.c elem_parse.c data_parsing.c \
 			get_next_line.c get_next_line_utils.c render.c render_walls.c \
 			key_on_off.c mlx_utils.c movement.c render_walls_utils.c \
@@ -46,6 +46,9 @@ $(NAME):	$(OBJ)
 			cp mlx/libmlx.dylib libmlx.dylib
 			$(CC) $(CFLAGS) $(OBJ) $(LIB_FT) $(LIB_MLX) -o $(NAME)
 bonus:		$(OBJ_BONUS)
+			cd libft && make bonus
+			cd mlx && make
+			cp mlx/libmlx.dylib libmlx.dylib
 			$(CC) $(CFLAGS) $(OBJ_BONUS) $(LIB_FT) $(LIB_MLX) -o $(NAME)
 $(OBJ_DIR)/%.o : $(SRCS_DIR)/%.c | $(OBJ_DIR)
 			$(CC) $(CFLAGS) -I$(INC_DIR) -c $< -o $@
@@ -61,4 +64,4 @@ fclean:		clean
 			cd mlx && make clean
 			$(RM) $(NAME)
 re:			fclean all
-.PHONY:		all clean fclean re
+.PHONY:		all clean fclean re bonus

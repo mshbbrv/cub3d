@@ -57,7 +57,7 @@ int		texture_parse(char *line, char **str, int i, t_all_data *all)
 	while (*(line + i) == ' ')
 		i++;
 	*str = ft_strdup(line + i);
-	if ((fd = open(*str, O_RDONLY)) < 0)
+	if ((fd = open(*str, O_RDONLY)) < 0 && check_text_ext(*str) == -1)
 	{
 		close(fd);
 		error_handler("Сan not open texture file");
